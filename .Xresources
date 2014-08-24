@@ -1,0 +1,50 @@
+Emacs*useXIM: true
+
+xmessage*font: -*-lucidatypewriter-medium-*-normal-sans-12-*-*-*-*-*-iso10646-1
+xedit*font: -*-lucidatypewriter-medium-*-normal-sans-12-*-*-*-*-*-iso10646-1
+
+URxvt.scrollBar:  false
+URxvt.font: -*-lucidatypewriter-medium-*-normal-sans-12-*-*-*-*-*-iso10646-1, -*-fixed-medium-r-normal-*-13-*-*-*-*-*-iso10646-1, -*-fixed-*-*-*-ja-13-*-*-*-*-*-iso10646-1
+URxvt.boldFont: -*-lucidatypewriter-bold-*-normal-sans-12-*-*-*-*-*-iso10646-1
+
+!URxvt.font:-*-fixed-medium-r-*-*-13-*-*-*-*-*-iso10646-1
+!URxvt.boldFont:-*-fixed-bold-r-*-*-13-*-*-*-*-*-iso10646-1
+
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: false
+
+XtcrollBar:  false
+Xtfont: -*-lucidatypewriter-medium-*-normal-sans-12-*-*-*-*-*-iso10646-1, -*-fixed-medium-r-normal-*-13-*-*-*-*-*-iso10646-1, -*-fixed-*-*-*-ja-13-*-*-*-*-*-iso10646-1
+Xterm.boldFont: -*-lucidatypewriter-bold-*-normal-sans-12-*-*-*-*-*-iso10646-1
+Xterm*scrollTtyOutput: false
+Xterm*scrollWithBuffer: false
+
+!URxvt.font: -*-terminus-bold-r-normal-*-12-*-*-*-*-*-iso10646-1
+!URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=false
+!URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=false
+URxvt.iso14755_52: false
+
+! Blacks
+xterm*color0: #151515
+xterm*color8: #505450
+! Reds
+xterm*color1: #a60101
+xterm*color9: #f99090
+! Greens
+xterm*color2: #026802
+xterm*color10: #a7e14b
+! Yellows
+xterm*color3: #ab6e03
+xterm*color11: #fddc01
+! Blues
+xterm*color4: #4a5463
+xterm*color12: #7d8794
+! Purples
+xterm*color5: #9c3885
+xterm*color13: #e628ba
+! Cyans
+xterm*color6: #08bab0
+xterm*color14: #74fff7
+! Whites
+xterm*color7: #bbbbbb
+xterm*color15: #ffffff
