@@ -1,0 +1,5 @@
+# M-p and M-n behave like comint-mode
+
+"\ep": previous-history
+"\en": next-history
+
