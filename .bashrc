@@ -46,7 +46,7 @@ stty -ixon
 GHC_INSTALL=/opt/ghc
 PLAN9=/usr/local/plan9 export PLAN9
 
-PATH=$GHC_INSTALL/bin:$HOME/.cabal/bin:$PATH:$HOME/bin:$PLAN9/bin export PATH
+PATH=$HOME/.cabal/bin:$PATH:$HOME/bin:$PLAN9/bin export PATH
 
 if [ "$INSIDE_ACME" = "true" ] ; then
   PS1="\$(awd)$ " export PS1;

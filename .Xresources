@@ -7,8 +7,14 @@ URxvt.scrollBar:  false
 !URxvt.font: -*-lucidatypewriter-medium-*-normal-sans-12-*-*-*-*-*-iso10646-1, -*-fixed-medium-r-normal-*-13-*-*-*-*-*-iso10646-1, -*-fixed-*-*-*-ja-13-*-*-*-*-*-iso10646-1
 !URxvt.boldFont: -*-lucidatypewriter-bold-*-normal-sans-12-*-*-*-*-*-iso10646-1
 
-URxvt.font:-*-fixed-medium-r-*-*-12-*-*-*-*-*-iso10646-1
-URxvt.boldFont:-*-fixed-bold-r-*-*-12-*-*-*-*-*-iso10646-1
+URxvt.font: 6x10
+URxvt.boldFont: 6x10bold
+
+!URxvt.font: 10x20
+!URxvt.boldFont: 9x13bold
+
+!URxvt.font:-*-fixed-bold-r-*-*-18-*-*-*-*-*-iso10646-1
+!URxvt.boldFont:-*-fixed-bold-r-*-*-18-*-*-*-*-*-iso10646-1
 
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: false
@@ -21,6 +27,7 @@ Xterm*scrollWithBuffer: false
 Xterm*reverseVideo: off
 
 !URxvt.font: -*-terminus-bold-r-normal-*-12-*-*-*-*-*-iso10646-1
+
 !URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=false
 !URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=false
 URxvt.iso14755_52: false
