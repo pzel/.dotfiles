@@ -3,10 +3,12 @@
 # for examples
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+if [ `uname` != "Darwin" ]; then
+    case $- in
+        *i*) ;;
+        *) return;;
+    esac
+fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -27,16 +29,6 @@ shopt -s checkwinsize
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -45,6 +37,7 @@ stty -ixon
 . ~/erlang/activate
 GHC_INSTALL=/opt/ghc
 PLAN9=/usr/local/plan9 export PLAN9
+LOCAL=/usr/local/bin:/usr/local/sbin
 
 PATH=$HOME/.cabal/bin:$PATH:$HOME/bin:$PLAN9/bin export PATH
 

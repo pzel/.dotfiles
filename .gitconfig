@@ -6,9 +6,5 @@
 	cm = commit
 	co = checkout
 	st = status
-
 [push]
 	default = simple
-
-[diff]
-  external = git-meld
