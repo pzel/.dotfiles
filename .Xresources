@@ -7,8 +7,8 @@ URxvt.scrollBar:  false
 !URxvt.font: -*-lucidatypewriter-medium-*-normal-sans-12-*-*-*-*-*-iso10646-1, -*-fixed-medium-r-normal-*-13-*-*-*-*-*-iso10646-1, -*-fixed-*-*-*-ja-13-*-*-*-*-*-iso10646-1
 !URxvt.boldFont: -*-lucidatypewriter-bold-*-normal-sans-12-*-*-*-*-*-iso10646-1
 
-URxvt.font: 6x10
-URxvt.boldFont: 6x10bold
+URxvt.font: 8x13bold
+URxvt.boldFont: 8x13bold
 
 !URxvt.font: 10x20
 !URxvt.boldFont: 9x13bold
