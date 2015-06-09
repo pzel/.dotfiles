@@ -39,17 +39,15 @@
 
 # Examples of commands:
 
-"xsel -o | xsel -bi"
+"super_key t"
+  Mod4+t
+
+"super_key c"
   Mod4+c
 
-"xvkbd -xsendevent -text '\S\[Insert]' >/dev/null 1>&2"
+"super_key x"
+  Mod4+x
+
+"super_key v"
   Mod4+v
 
-"sudo /usr/bin/volume down"
-  XF86AudioLowerVolume
-
-"sudo /usr/bin/volume up"
-  XF86AudioRaiseVolume
-
-"sudo /usr/p/bin/volume mute"
-  XF86AudioMute

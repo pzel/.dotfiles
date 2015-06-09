@@ -1,0 +1,60 @@
+#!/bin/sh
+# Make the super key behaviour more like mac os x across
+# GTK Terminal apps; emacs; regular GTK/QT apps
+set -e
+
+send_to_terminal () {
+    echo "sending to terminal"
+    key=$1
+    case $key in
+	t) xdotool getactivewindow key "ctrl+shift+t" ;;
+	c) xdotool getactivewindow key "ctrl+shift+c" ;;
+	v) xdotool getactivewindow key "ctrl+shift+v" ;;
+	x) xdotool getactivewindow key "ctrl+shift+x" ;;
+    esac
+}
+
+send_to_application () {
+    echo "sending to app"
+    key=$1
+    case $key in
+	t) xdotool getactivewindow key "ctrl+t" ;;
+	c) xdotool getactivewindow key "ctrl+c" ;;
+	v) xdotool getactivewindow key "ctrl+v" ;;
+	x) xdotool getactivewindow key "ctrl+x" ;;
+    esac
+}
+
+send_to_emacs () {
+    echo "sending to emacs"
+    key=$1
+    case $key in
+	c) xdotool getactivewindow key "alt+w" ;;
+	v) xdotool getactivewindow key "ctrl+y" ;;
+	x) xdotool getactivewindow key "ctrl+w" ;;
+    esac
+}
+
+dispatch() {
+    key=$1
+    app=$2
+    echo "$app" | grep -i terminal
+    if [ 0 = "$?" ]
+    then send_to_terminal "$key";
+    else 
+	echo "$app" | grep -i 'emacs24@'
+	if [ 0 = "$?" ]
+	then send_to_emacs "$key";
+	else send_to_application "$key" "$app";
+	fi
+    fi
+}
+
+main () {
+     key=$1
+     app=$(xdotool getactivewindow getwindowname)
+     dispatch "$key" "$app"
+}
+
+
+main $1
