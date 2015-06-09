@@ -1,10 +1,9 @@
 #!/bin/sh
 # Make the super key behaviour more like mac os x across
 # GTK Terminal apps; emacs; regular GTK/QT apps
-set -e
 
 send_to_terminal () {
-    echo "sending to terminal"
+    #echo "sending to terminal"
     key=$1
     case $key in
 	t) xdotool getactivewindow key "ctrl+shift+t" ;;
@@ -15,7 +14,7 @@ send_to_terminal () {
 }
 
 send_to_application () {
-    echo "sending to app"
+    #echo "sending to app"
     key=$1
     case $key in
 	t) xdotool getactivewindow key "ctrl+t" ;;
@@ -26,7 +25,7 @@ send_to_application () {
 }
 
 send_to_emacs () {
-    echo "sending to emacs"
+    #echo "sending to emacs"
     key=$1
     case $key in
 	c) xdotool getactivewindow key "alt+w" ;;
