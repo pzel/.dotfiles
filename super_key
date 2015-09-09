@@ -18,6 +18,7 @@ send_to_application () {
     key=$1
     case $key in
 	t) xdotool getactivewindow key "ctrl+t" ;;
+	f) xdotool getactivewindow key "ctrl+f" ;;
 	c) xdotool getactivewindow key "ctrl+c" ;;
 	v) xdotool getactivewindow key "ctrl+v" ;;
 	x) xdotool getactivewindow key "ctrl+x" ;;
@@ -28,6 +29,7 @@ send_to_emacs () {
     #echo "sending to emacs"
     key=$1
     case $key in
+	f) xdotool getactivewindow key "ctrl+s" ;;
 	c) xdotool getactivewindow key "alt+w" ;;
 	v) xdotool getactivewindow key "ctrl+y" ;;
 	x) xdotool getactivewindow key "ctrl+w" ;;
@@ -41,7 +43,7 @@ dispatch() {
     if [ 0 = "$?" ]
     then send_to_terminal "$key";
     else 
-	echo "$app" | grep -i 'emacs24@'
+	echo "$app" | grep -i 'emacs@'
 	if [ 0 = "$?" ]
 	then send_to_emacs "$key";
 	else send_to_application "$key" "$app";

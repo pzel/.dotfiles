@@ -1,10 +1,11 @@
 [user]
-	email = simon@manisola.net
+	email = zelazny@mailbox.org
 	name = "Simon Zelazny"
 [alias]
 	br = branch
 	cm = commit
 	co = checkout
+	rb = rebase			
 	st = status
 [push]
 	default = simple

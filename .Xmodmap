@@ -1,2 +1,6 @@
-keysym 0xff61 = Super_L
-keycode 107 = Super_L
+keysym 0xff67 = Super_R
+keycode 135 = Super_R
+keycode 166 = Prior
+keycode 167 = Next
+
+

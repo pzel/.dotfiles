@@ -37,9 +37,10 @@ stty -ixon
 . ~/erlang/activate
 GHC_INSTALL=/opt/ghc
 PLAN9=/usr/local/plan9 export PLAN9
-LOCAL=/usr/local/bin:/usr/local/sbin
-
-PATH=$HOME/.cabal/bin:$PATH:$HOME/bin:$PLAN9/bin export PATH
+LOCAL=/usr/local/bin:/usr/local/sbin:/opt/rabbitmq/sbin:/usr/local/Gambit-C/bin
+EDITOR=ema
+PATH=$HOME/.cabal/bin:$PATH:$HOME/bin:$PLAN9/bin:$LOCAL:$GHC_INSTALL/bin export PATH
+export LC_ALL=en_US.utf-8
 
 if [ "$INSIDE_ACME" = "true" ] ; then
   PS1="\$(awd)$ " export PS1;
