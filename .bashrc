@@ -1,7 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 # If not running interactively, don't do anything
 if [ `uname` != "Darwin" ]; then
     case $- in
@@ -18,29 +14,22 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=20000
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+HISTSIZE=100000
+HISTFILESIZE=200000
 shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
 
 stty -ixon
-. ~/erlang/activate
+
+SONAR_RUNNER_HOME=/opt/sonar-runner-2.4 export SONAR_RUNNER_HOME
 GHC_INSTALL=/opt/ghc
 PLAN9=/usr/local/plan9 export PLAN9
 LOCAL=/usr/local/bin:/usr/local/sbin:/opt/rabbitmq/sbin:/usr/local/Gambit-C/bin
-EDITOR=ema
-PATH=$HOME/.cabal/bin:$PATH:$HOME/bin:$PLAN9/bin:$LOCAL:$GHC_INSTALL/bin export PATH
+EDITOR=ema export EDITOR
+PATH=$HOME/.cabal/bin:$PATH:$HOME/bin:$PLAN9/bin:$LOCAL:$GHC_INSTALL/bin:$SONAR_RUNNER_HOME/bin export PATH
 export LC_ALL=en_US.utf-8
+
+. ~/erlang/activate
 
 if [ "$INSIDE_ACME" = "true" ] ; then
   PS1="\$(awd)$ " export PS1;
