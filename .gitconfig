@@ -7,5 +7,7 @@
 	co = checkout
 	rb = rebase			
 	st = status
+[core]
+  editor = "emacsclient"
 [push]
 	default = simple
