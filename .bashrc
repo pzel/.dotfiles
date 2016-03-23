@@ -37,5 +37,5 @@ export PATH=$HOME/.cabal/bin:$PATH:$HOME/bin:$PLAN9/bin:$LOCAL:$GHC_INSTALL/bin:
 export LC_ALL=en_US.UTF-8
 export GUIX_LOCPATH=$HOME/.guix-profile/lib/locale
 
-. ~/erlang/activate
+. ~/.activate_erlang
 eval "$(rbenv init -)"
