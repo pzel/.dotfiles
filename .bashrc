@@ -6,36 +6,63 @@ if [ `uname` != "Darwin" ]; then
     esac
 fi
 
+
+## TERMINAL TWEAKS
 if [ "$INSIDE_ACME" = "true" ] ; then
   PS1="\$(awd)$ " export PS1;
   unset COLORTERM
-else
+elif [ "$TMUX" != "" ]; then
+    PROMPT_COMMAND='tmux rename-window "$(basename $(pwd))"' export PROMPT_COMMAND
     PS1="$ " export PS1;
-fi
+else 
+    PS1="$ " export PS1;
+fi;
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
+
+## BASH TWEAKS
 HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=100000
 HISTFILESIZE=200000
 shopt -s checkwinsize
 if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
-
 stty -ixon
 
-GHC_INSTALL=/opt/ghc
-SMACKAGE=$HOME/.smackage
-PLAN9=/usr/local/plan9 export PLAN9
-LOCAL=/usr/local/bin:/usr/local/sbin:/opt/rabbitmq/sbin:/usr/local/Gambit-C/bin
-EDITOR=ema export EDITOR
-export PATH=$HOME/.cabal/bin:$PATH:$HOME/bin:$PLAN9/bin:$LOCAL:$GHC_INSTALL/bin:$HOME/.rbenv/bin:$SMACKAGE/bin
+
+## GPG AGENT
+# Run this on login somewhere:
+# gpg-agent --daemon
+if pgrep gpg-agent >/dev/null 2>&1 ; then
+  if [ -f "${HOME}/.gpg-agent-info" ]; then
+  	. "${HOME}/.gpg-agent-info"
+        export GPG_AGENT_INFO
+  fi;
+else
+  echo 'NO GPG AGENT RUNNING'
+fi;
+GPG_TTY=$(tty) export GPG_TTY
+
+
+## PATHS
 export LC_ALL=en_US.UTF-8
+export GUILE_LOAD_PATH=/usr/local/share/guile/site/2.0
+export GUILE_LOAD_COMPILED_PATH=/usr/local/share/guile/site/2.0
 export GUIX_LOCPATH=$HOME/.guix-profile/lib/locale
 
+LOCAL=/usr/local/bin:/usr/local/sbin
+STACK=/home/p/.stack/programs/x86_64-linux/ghc-7.10.2/bin
+export PATH=$HOME/.cabal/bin:$PATH:$HOME/bin:$LOCAL:$HOME/.rbenv/bin:$STACK
+
+
+
+## LANGUAGE OVERLAY MANAGERS
 . ~/.activate_erlang
 eval "$(rbenv init -)"
+
+
+## ALIA
+EDITOR=ema export EDITOR
+resolv () { 
+  echo -e 'nameserver 8.8.8.8\nnameserver 8.8.4.4' |\
+  sudo tee /etc/resolv.conf 
+}
