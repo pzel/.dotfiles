@@ -3,5 +3,11 @@ keycode 135 = Super_R
 keycode 166 = Prior
 keycode 167 = Next
 
+! pause is caps lock
+keycode 127 = Caps_Lock
+
+!remove Lock = Caps_Lock
+!keycode 66 = Control_L Control_L Control_L
+!add Control = Control_L
 !keysym 0xff61 = Super_L
 !keycode 107 = Super_L

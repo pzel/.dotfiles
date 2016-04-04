@@ -12,7 +12,7 @@ if [ "$INSIDE_ACME" = "true" ] ; then
   PS1="\$(awd)$ " export PS1;
   unset COLORTERM
 elif [ "$TMUX" != "" ]; then
-    PROMPT_COMMAND='tmux rename-window "$(basename $(pwd))"' export PROMPT_COMMAND
+    PROMPT_COMMAND='tmux rename-window "$(basename $(pwd))" >/dev/null 2>&1'  export PROMPT_COMMAND
     PS1="$ " export PS1;
 else 
     PS1="$ " export PS1;
@@ -51,7 +51,7 @@ export GUIX_LOCPATH=$HOME/.guix-profile/lib/locale
 
 LOCAL=/usr/local/bin:/usr/local/sbin
 STACK=/home/p/.stack/programs/x86_64-linux/ghc-7.10.2/bin
-export PATH=$HOME/.cabal/bin:$PATH:$HOME/bin:$LOCAL:$HOME/.rbenv/bin:$STACK
+export PATH=$HOME/.cabal/bin:$PATH:$HOME/.local/bin:$LOCAL:$HOME/.rbenv/bin:$STACK
 
 
 
