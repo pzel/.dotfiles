@@ -36,12 +36,12 @@ if pgrep gpg-agent >/dev/null 2>&1 ; then
   if [ -f "${HOME}/.gpg-agent-info" ]; then
   	. "${HOME}/.gpg-agent-info"
         export GPG_AGENT_INFO
+	GPG_TTY=$(tty) export GPG_TTY
+	gpg-connect-agent updatestartuptty /bye >/dev/null
   fi;
 else
   echo 'NO GPG AGENT RUNNING'
 fi;
-GPG_TTY=$(tty) export GPG_TTY
-
 
 ## PATHS
 export LC_ALL=en_US.UTF-8

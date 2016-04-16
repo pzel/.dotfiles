@@ -39,17 +39,29 @@
 
 # Examples of commands:
 
-"super_key t"
-  Mod4+t
+"/home/p/bin/xfterm" 
+  Mod4 + t
 
-"super_key c"
-  Mod4+c
+# set directly keycode (here control + f with my keyboard)
+#"xterm"
+#  c:41 + m:0x4
 
-"super_key x"
-  Mod4+x
+# specify a mouse button
+#"xterm"
+#  control + b:2
 
-"super_key v"
-  Mod4+v
+#"xterm -geom 50x20+20+20"
+#   Shift+Mod2+alt + s
+#
+## set directly keycode (here control+alt+mod2 + f with my keyboard)
+#"xterm"
+#  alt + c:0x29 + m:4 + mod2
+#
+## Control+Shift+a  release event starts rxvt
+#"rxvt"
+#  release+control+shift + a
+#
+## Control + mouse button 2 release event starts rxvt
+#"rxvt"
+#  Control + b:2 + Release
 
-"super_key f"
-  Mod4+f
