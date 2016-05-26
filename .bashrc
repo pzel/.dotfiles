@@ -53,16 +53,15 @@ LOCAL=/usr/local/bin:/usr/local/sbin
 STACK=/home/p/.stack/programs/x86_64-linux/ghc-7.10.2/bin
 export PATH=$HOME/.cabal/bin:$PATH:$HOME/.local/bin:$LOCAL:$HOME/.rbenv/bin:$STACK
 
-
-
 ## LANGUAGE OVERLAY MANAGERS
-. ~/.activate_erlang
+. ~/.erlangs/master/activate
 eval "$(rbenv init -)"
-
 
 ## ALIA
 EDITOR=ema export EDITOR
-resolv () { 
-  echo -e 'nameserver 8.8.8.8\nnameserver 8.8.4.4' |\
-  sudo tee /etc/resolv.conf 
-}
+resolv () { echo -e 'nameserver 8.8.8.8\nnameserver 8.8.4.4' | sudo tee /etc/resolv.conf; }
+dps() { docker ps; }
+dimg() { docker images; }
+drm() { docker ps -a | awk '{print $2}' | grep -v ID | xargs docker rm -f; }
+drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f; }
+
