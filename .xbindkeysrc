@@ -40,7 +40,7 @@
 # Examples of commands:
 
 "/home/p/bin/xfterm" 
-  Mod4 + t
+  Mod4 + grave
 
 # set directly keycode (here control + f with my keyboard)
 #"xterm"

@@ -65,3 +65,6 @@ dimg() { docker images; }
 drm() { docker ps -a | awk '{print $2}' | grep -v ID | xargs docker rm -f; }
 drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f; }
 
+if ((pgrep tmux >/dev/null) && ! (env | grep 'TMUX=' >/dev/null)); 
+  then tmux attach ; 
+fi
