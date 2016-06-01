@@ -31,3 +31,5 @@ Xterm*reverseVideo: off
 !URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=false
 !URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=false
 URxvt.iso14755_52: false
+
+Xft.dpi: 136

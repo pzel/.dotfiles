@@ -30,18 +30,8 @@ stty -ixon
 
 
 ## GPG AGENT
-# Run this on login somewhere:
-# gpg-agent --daemon
-if pgrep gpg-agent >/dev/null 2>&1 ; then
-  if [ -f "${HOME}/.gpg-agent-info" ]; then
-  	. "${HOME}/.gpg-agent-info"
-        export GPG_AGENT_INFO
-	GPG_TTY=$(tty) export GPG_TTY
-	gpg-connect-agent updatestartuptty /bye >/dev/null
-  fi;
-else
-  echo 'NO GPG AGENT RUNNING'
-fi;
+GPG_TTY=$(tty) export GPG_TTY
+export GPG_AGENT_INFO=""
 
 ## PATHS
 export LC_ALL=en_US.UTF-8
@@ -54,7 +44,7 @@ STACK=/home/p/.stack/programs/x86_64-linux/ghc-7.10.2/bin
 export PATH=$HOME/.cabal/bin:$PATH:$HOME/.local/bin:$LOCAL:$HOME/.rbenv/bin:$STACK
 
 ## LANGUAGE OVERLAY MANAGERS
-. ~/.erlangs/master/activate
+. ~/.erlangs/default/activate
 eval "$(rbenv init -)"
 
 ## ALIA
