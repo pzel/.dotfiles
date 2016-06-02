@@ -1,0 +1,7 @@
+#!/bin/bash
+set -x
+
+if ! (pgrep -fl chromium-browser > /dev/null)
+then o "$@"
+else chro "$@"
+fi

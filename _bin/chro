@@ -1,0 +1,1 @@
+chromium-browser --user-data-dir=$HOME/g/.chromium-profile "$@" 2>&1
