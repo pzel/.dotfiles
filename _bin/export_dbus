@@ -1,0 +1,31 @@
+#!/bin/sh
+# Export the dbus session address on startup so it can be used by any other environment
+sleep 5
+touch $HOME/.Xdbus
+chmod 600 $HOME/.Xdbus
+
+env | grep DBUS_SESSION_BUS_ADDRESS > $HOME/.Xdbus
+echo 'export DBUS_SESSION_BUS_ADDRESS' >> $HOME/.Xdbus
+
+# Export XAUTHORITY value on startup so it can be used by cron
+env | grep XAUTHORITY >> $HOME/.Xdbus
+echo 'export XAUTHORITY' >> $HOME/.Xdbus
+
+
+## What to do with this? For example:
+
+# 1. Register a script for the laptop lid event
+#     $ cat /etc/acpi/events/lm_lid
+#     event=button/lid.*
+#     action=/etc/acpi/lid.sh
+#2. Run slock to lock screen, bypassing *-power-manager bullshit
+#      $ cat /etc/acpi/lid.sh
+#      #!/bin/bash
+#      source /home/p/.Xdbus
+#      grep -q closed /proc/acpi/button/lid/LID/state
+#      if [ $? = 0 ]
+#      then
+#      	DISPLAY=:0.0 su p -c "slock" &
+#      else
+#      	 echo	;
+#      fi
