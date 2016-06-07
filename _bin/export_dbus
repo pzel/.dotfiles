@@ -1,16 +1,21 @@
 #!/bin/sh
 # Export the dbus session address on startup so it can be used by any other environment
 sleep 5
-touch $HOME/.Xdbus
-chmod 600 $HOME/.Xdbus
 
-env | grep DBUS_SESSION_BUS_ADDRESS > $HOME/.Xdbus
-echo 'export DBUS_SESSION_BUS_ADDRESS' >> $HOME/.Xdbus
+OUTPUT=$HOME/.Xdbus
+touch $OUTPUT
+chmod 600 $OUTPUT
+echo '' > $OUTPUT
 
-# Export XAUTHORITY value on startup so it can be used by cron
-env | grep XAUTHORITY >> $HOME/.Xdbus
-echo 'export XAUTHORITY' >> $HOME/.Xdbus
+emit () {
+  env | grep $1 >> $OUTPUT
+  echo "export $1" >> $OUTPUT
+}
 
+for VAR in DBUS_SESSION_BUS_ADDRESS XAUTHORITY \
+           SSH_AGENT_PID SSH_AUTH_SOCK; do
+  emit $VAR
+done	
 
 ## What to do with this? For example:
 
