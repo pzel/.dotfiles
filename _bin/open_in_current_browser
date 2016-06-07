@@ -2,6 +2,6 @@
 set -x
 
 if ! (pgrep -fl chromium > /dev/null)
-then o "$@"
+then firefox "$@"
 else chro "$@"
 fi

@@ -1,0 +1,10 @@
+#!/bin/sh
+if (pgrep tmux >/dev/null) 
+then
+  tmux new-window -c "$@" &
+  ~/bin/xfterm &
+else
+  exo-open --working-directory "$@" --launch TerminalEmulator
+fi
+
+
