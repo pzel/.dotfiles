@@ -1,5 +1,5 @@
 #!/bin/sh
-TERM=xfce4-terminal
+TERM=gnome-terminal
 pid=$(pgrep -fl $TERM)
 if [ -z "$pid" ]; then
   nohup  bash -c "$TERM" > /dev/null / 2>&1 &
