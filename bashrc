@@ -12,9 +12,7 @@ if [ "$INSIDE_ACME" = "true" ] ; then
   PS1="\$(awd)$ " export PS1;
   unset COLORTERM
 elif [ "$TMUX" != "" ]; then
-    PWD=`pwd`
-    BASE=`basename "$PWD"`
-    PROMPT_COMMAND='tmux rename-window "$BASE" >/dev/null 2>&1'  export PROMPT_COMMAND
+    PROMPT_COMMAND='tmux rename-window "$(basename $(pwd))" >/dev/null 2>&1'  export PROMPT_COMMAND
     PS1="$ " export PS1;
 else 
     PS1="$ " export PS1;
