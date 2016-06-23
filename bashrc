@@ -14,7 +14,7 @@ if [ "$INSIDE_ACME" = "true" ] ; then
 elif [ "$TMUX" != "" ]; then
     PROMPT_COMMAND='tmux rename-window "$(basename $(pwd))" >/dev/null 2>&1'  export PROMPT_COMMAND
     PS1="$ " export PS1;
-else 
+else
     PS1="$ " export PS1;
 fi;
 
@@ -35,9 +35,6 @@ export GPG_AGENT_INFO=""
 
 ## PATHS
 export LC_ALL=en_US.UTF-8
-export GUILE_LOAD_PATH=/usr/local/share/guile/site/2.0
-export GUILE_LOAD_COMPILED_PATH=/usr/local/share/guile/site/2.0
-export GUIX_LOCPATH=$HOME/.guix-profile/lib/locale
 
 LOCAL=/usr/local/bin:/usr/local/sbin
 STACK=/home/p/.stack/programs/x86_64-linux/ghc-7.10.2/bin
@@ -45,12 +42,11 @@ RMQ=/opt/rabbitmq/sbin
 export PATH=$HOME/.cabal/bin:$PATH:$HOME/.local/bin:$LOCAL:$HOME/.rbenv/bin:$STACK:$RMQ
 
 ## LANGUAGE OVERLAY MANAGERS
-. ~/.erlangs/default/activate
-eval "$(rbenv init -)"
+. ~/.erlangs/default/activate  # ERLANG
+eval "$(rbenv init -)"         # RUBY
 
 ## ALIA
 EDITOR=ema export EDITOR
-resolv () { echo -e 'nameserver 8.8.8.8\nnameserver 8.8.4.4' | sudo tee /etc/resolv.conf; }
 dps() { docker ps; }
 dimg() { docker images; }
 drm() { docker ps -a | awk '{print $2}' | grep -v ID | xargs docker rm -f; }
@@ -58,6 +54,9 @@ drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f;
 alias xbq='xbps-query -Rs'
 alias xbi='sudo xbps-install -S'
 
-if ((pgrep tmux >/dev/null) && ! (env | grep 'TMUX=' >/dev/null) && ! (env | grep 'TERM=dumb' >/dev/null)); 
-  then tmux attach ; 
+
+if ((pgrep tmux >/dev/null) &&\
+   ! (env | grep 'TMUX=' >/dev/null) &&\
+   ! (env | grep 'TERM=dumb' >/dev/null));
+  then tmux attach ;
 fi
