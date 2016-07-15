@@ -20,13 +20,14 @@ fi;
 
 
 ## BASH TWEAKS
-HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth
 shopt -s histappend
-HISTSIZE=100000
-HISTFILESIZE=200000
+export HISTSIZE=100000
+export HISTFILESIZE=200000
 shopt -s checkwinsize
 if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
 stty -ixon
+export MANPAGER=/usr/bin/less
 
 
 ## GPG AGENT
@@ -55,8 +56,9 @@ alias xbq='xbps-query -Rs'
 alias xbi='sudo xbps-install -S'
 
 
-if ((pgrep tmux >/dev/null) &&\
-   ! (env | grep 'TMUX=' >/dev/null) &&\
-   ! (env | grep 'TERM=dumb' >/dev/null));
-  then tmux attach ;
-fi
+## This is sometimes cumbersome, esp. if tmux hangs
+#if ((pgrep tmux >/dev/null) &&\
+#   ! (env | grep 'TMUX=' >/dev/null) &&\
+#   ! (env | grep 'TERM=dumb' >/dev/null));
+#  then tmux attach ;
+#fi
