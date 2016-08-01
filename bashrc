@@ -11,9 +11,6 @@ fi
 if [ "$INSIDE_ACME" = "true" ] ; then
   PS1="\$(awd)$ " export PS1;
   unset COLORTERM
-elif [ "$TMUX" != "" ]; then
-    PROMPT_COMMAND='tmux rename-window "$(basename $(pwd))" >/dev/null 2>&1'  export PROMPT_COMMAND
-    PS1="$ " export PS1;
 else
     PS1="$ " export PS1;
 fi;
@@ -50,7 +47,7 @@ eval "$(rbenv init -)"         # RUBY
 EDITOR=ema export EDITOR
 dps() { docker ps; }
 dimg() { docker images; }
-drm() { docker ps -a | awk '{print $2}' | grep -v ID | xargs docker rm -f; }
+drm() { docker ps -a | awk '{print $1}' | grep -v ID | xargs docker rm -f; }
 drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f; }
 alias xbq='xbps-query -Rs'
 alias xbi='sudo xbps-install -S'
