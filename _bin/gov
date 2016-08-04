@@ -4,3 +4,6 @@ if [ "$1" != "" ]; then
   for cpu in $(seq 0 3); do sudo cpufreq-set -c $cpu -g "$1"; done
 fi
 cpufreq-info | grep "may decide " |head -n1 | sed -e's/^ \+//g'
+
+echo 'for gpe in $(grep . -r /sys/firmware/acpi/interrupts/ | grep gpe | grep enabled | awk -F':' '{print $1}'); do echo "disabled" > $gpe; done'
+
