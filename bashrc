@@ -33,7 +33,8 @@ export GPG_AGENT_INFO=""
 
 ## PATHS
 export LC_ALL=en_US.UTF-8
-
+export GUILE_LOAD_PATH=/usr/local/share/guile/site/2.0
+export GUILE_LOAD_COMPILED_PATH=/usr/local/share/guile/site/2.0
 LOCAL=/usr/local/bin:/usr/local/sbin
 STACK=/home/p/.stack/programs/x86_64-linux/ghc-7.10.2/bin
 RMQ=/opt/rabbitmq/sbin
@@ -42,6 +43,8 @@ export PATH=$HOME/.cabal/bin:$PATH:$HOME/.local/bin:$LOCAL:$HOME/.rbenv/bin:$STA
 ## LANGUAGE OVERLAY MANAGERS
 . ~/.erlangs/default/activate  # ERLANG
 eval "$(rbenv init -)"         # RUBY
+. ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+eval "$(opam config env)"
 
 ## ALIA
 EDITOR=ema export EDITOR

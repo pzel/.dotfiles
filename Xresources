@@ -10,8 +10,8 @@ URxvt.scrollBar:  false
 !URxvt.font: 8x13bold
 !URxvt.boldFont: 8x13bold
 
-URxvt.font: 10x20
-URxvt.boldFont: 9x13bold
+!URxvt.font: 10x20
+!URxvt.boldFont: 9x13bold
 
 !URxvt.font:-*-fixed-bold-r-*-*-18-*-*-*-*-*-iso10646-1
 !URxvt.boldFont:-*-fixed-bold-r-*-*-18-*-*-*-*-*-iso10646-1
