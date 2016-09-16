@@ -43,8 +43,8 @@ export PATH=$HOME/.cabal/bin:$PATH:$HOME/.local/bin:$LOCAL:$HOME/.rbenv/bin:$STA
 ## LANGUAGE OVERLAY MANAGERS
 . ~/.erlangs/default/activate  # ERLANG
 eval "$(rbenv init -)"         # RUBY
-. ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-eval "$(opam config env)"
+export NVM_DIR="/home/p/.nvm"  # NODE
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # NODE
 
 ## ALIA
 EDITOR=ema export EDITOR
@@ -56,9 +56,3 @@ alias xbq='xbps-query -Rs'
 alias xbi='sudo xbps-install -S'
 
 
-## This is sometimes cumbersome, esp. if tmux hangs
-#if ((pgrep tmux >/dev/null) &&\
-#   ! (env | grep 'TMUX=' >/dev/null) &&\
-#   ! (env | grep 'TERM=dumb' >/dev/null));
-#  then tmux attach ;
-#fi
