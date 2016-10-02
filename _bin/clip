@@ -1,2 +1,3 @@
 #!/bin/sh
-xclip -in -selection clipboard
+xsel --input --clipboard &&
+xsel --output --clipboard | xsel --input
