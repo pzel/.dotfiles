@@ -38,13 +38,16 @@ export GUILE_LOAD_COMPILED_PATH=/usr/local/share/guile/site/2.0
 LOCAL=/usr/local/bin:/usr/local/sbin
 STACK=/home/p/.stack/programs/x86_64-linux/ghc-7.10.2/bin
 RMQ=/opt/rabbitmq/sbin
-export PATH=$HOME/.cabal/bin:$PATH:$HOME/.local/bin:$LOCAL:$HOME/.rbenv/bin:$STACK:$RMQ
+SCALA_HOME=/opt/scala
+export PATH=$HOME/.cabal/bin:$HOME/.local/bin:$LOCAL:$HOME/.rbenv/bin:$STACK:$RMQ:$SCALA_HOME/bin:$PATH
 
 ## LANGUAGE OVERLAY MANAGERS
-. ~/.erlangs/default/activate  # ERLANG
-eval "$(rbenv init -)"         # RUBY
-export NVM_DIR="/home/p/.nvm"  # NODE
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # NODE
+. $HOME/.nix-profile/etc/profile.d/nix.sh # NIX
+# . ~/.erlangs/default/activate  # ERLANG
+# eval "$(rbenv init -)"         # RUBY
+# test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex" #Elixir
+# export NVM_DIR="/home/p/.nvm"  # NODE
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # NODE
 
 ## ALIA
 EDITOR=ema export EDITOR

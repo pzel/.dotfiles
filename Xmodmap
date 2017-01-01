@@ -1,12 +1,15 @@
-keysym 0xff67 = Super_R
+!keysym 0xff67 = Super_R
 keycode 135 = Super_R
 keycode 166 = Prior
 keycode 167 = Next
 
-! pause is caps lock
-keycode 127 = Caps_Lock
+! Make Delete a second Insert
+keycode 119 = Insert  
+keycode 118 = Delete
 
-!remove Lock = Caps_Lock
+! PrintScrn is caps lock
+keycode 107 = Caps_Lock
+
 !keycode 66 = Control_L Control_L Control_L
 !add Control = Control_L
 !keysym 0xff61 = Super_L
