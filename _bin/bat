@@ -1,0 +1,8 @@
+#!/bin/sh
+main() {
+  now=$(cat /sys/bus/acpi/drivers/battery/PNP0C0A\:00/power_supply/BAT0/charge_now)
+  full=$(cat /sys/bus/acpi/drivers/battery/PNP0C0A\:00/power_supply/BAT0/charge_full)
+  echo "scale=2; ${now} / ${full}" | bc 
+}
+
+main
