@@ -1,6 +1,7 @@
 #!/bin/bash
 if pgrep -u $USER -f emacs > /dev/null;
 then
+	echo "Emacs found" 1>&2
 	nohup  emacsclient "$@" > /dev/null 2>&1 &
 	sleep 1		
         xdotool windowactivate $(xdotool search --class emacs | tail -1) > /dev/null 2>&1 &

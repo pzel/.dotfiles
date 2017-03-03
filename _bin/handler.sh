@@ -14,6 +14,7 @@ PID=$(pgrep dbus-launch)
 export USER=$(ps -o user --no-headers $PID)
 USERHOME=$(getent passwd $USER | cut -d: -f6)
 export XAUTHORITY="$USERHOME/.Xauthority"
+
 for x in /tmp/.X11-unix/*; do
     displaynum=`echo $x | sed s#/tmp/.X11-unix/X##`
     if [ x"$XAUTHORITY" != x"" ]; then
@@ -26,8 +27,9 @@ case "$1" in
         #echo "PowerButton pressed!">/dev/tty5
         case "$2" in
             PBTN|PWRF)
-		    logger "PowerButton pressed: $2, shutting down..."
-		    shutdown -P now
+		    logger "PowerButton pressed: $2, suspending down..."
+                    /home/p/bin/zzz
+		    # shutdown -P now
 		    ;;
             *)      logger "ACPI action undefined: $2" ;;
         esac
@@ -37,8 +39,7 @@ case "$1" in
             SBTN|SLPB)
 		    # suspend-to-ram
 		    logger "Sleep Button pressed: $2, suspending..."
-		    source /home/p/.Xdbus
-		    /home/p/bin/zzz
+                    /home/p/bin/zzz
 		    ;;
             *)      logger "ACPI action undefined: $2" ;;
         esac
@@ -78,12 +79,8 @@ case "$1" in
     button/lid)
 	case "$3" in
 		close)
-			    source /home/p/.Xdbus
-				echo "bam" > /tmp/lid__
-			    /home/p/bin/zzz
-			# suspend-to-ram
 			logger "LID closed, suspending..."
-
+                        /home/p/bin/zzz
 			;;
 		open)	logger "LID opened" ;;
 		*) logger "ACPI action undefined (LID): $2";;

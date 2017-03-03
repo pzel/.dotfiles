@@ -33,21 +33,21 @@ export GPG_AGENT_INFO=""
 
 ## PATHS
 export LC_ALL=en_US.UTF-8
-export GUILE_LOAD_PATH=/usr/local/share/guile/site/2.0
-export GUILE_LOAD_COMPILED_PATH=/usr/local/share/guile/site/2.0
-LOCAL=/usr/local/bin:/usr/local/sbin
-STACK=/home/p/.stack/programs/x86_64-linux/ghc-7.10.2/bin
-RMQ=/opt/rabbitmq/sbin
-SCALA_HOME=/opt/scala
-export PATH=$HOME/.cabal/bin:$HOME/.local/bin:$LOCAL:$HOME/.rbenv/bin:$STACK:$RMQ:$SCALA_HOME/bin:$PATH
+export PATH=/opt/texlive/2016/bin/x86_64-linux:\
+$HOME/.local/bin:$HOME/.rbenv/bin:\
+$PATH
 
 ## LANGUAGE OVERLAY MANAGERS
 . $HOME/.nix-profile/etc/profile.d/nix.sh # NIX
-# . ~/.erlangs/default/activate  # ERLANG
-# eval "$(rbenv init -)"         # RUBY
-# test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex" #Elixir
+. ~/.erlangs/default/activate  # ERLANG
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex" #Elixir
+kiex use 1.4.2 > /dev/null
+
+# . /home/p/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+eval "$(rbenv init -)"         # RUBY
 # export NVM_DIR="/home/p/.nvm"  # NODE
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # NODE
+
 
 ## ALIA
 EDITOR=ema export EDITOR
@@ -57,5 +57,6 @@ drm() { docker ps -a | awk '{print $1}' | grep -v ID | xargs docker rm -f; }
 drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f; }
 alias xbq='xbps-query -Rs'
 alias xbi='sudo xbps-install -S'
-
+alias ns='nix-shell .'
+alias mpl='mplayer -af scaletempo'
 

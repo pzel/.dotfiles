@@ -9,6 +9,6 @@
 	st = status
         hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [core]
-  editor = "emacsclient"
+  editor = emacsclient -a \"\"
 [push]
 	default = simple
