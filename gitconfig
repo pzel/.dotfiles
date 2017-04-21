@@ -1,6 +1,7 @@
 [user]
 	email = zelazny@mailbox.org
 	name = "Simon Zelazny"
+	signingkey = 78CBAD6ABFB85A69
 [alias]
 	br = branch
 	cm = commit
@@ -9,6 +10,8 @@
 	st = status
         hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [core]
-  editor = emacsclient -a \"\"
+  editor = emx
 [push]
 	default = simple
+[gpg]
+	program = gpg2

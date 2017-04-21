@@ -1,7 +1,6 @@
 #!/bin/bash
-set -x
-
-if ! (pgrep -fl chromium > /dev/null)
-then firefox "$@"
-else chro "$@"
+#set -x
+if ! (pgrep -fl chromium  > /dev/null 2>&1)
+then firefox "$@" > /dev/null 2>&1
+else chro "$@" > /dev/null 2>&1
 fi

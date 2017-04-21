@@ -1,8 +1,14 @@
 #!/bin/sh
+BATTERY='/sys/bus/acpi/drivers/battery/PNP0C0A:00/power_supply/BAT0'
 main() {
-  now=$(cat /sys/bus/acpi/drivers/battery/PNP0C0A\:00/power_supply/BAT0/charge_now)
-  full=$(cat /sys/bus/acpi/drivers/battery/PNP0C0A\:00/power_supply/BAT0/charge_full)
-  echo "scale=2; ${now} / ${full}" | bc 
+    #now=$(cat $BATTERY/energy_now)
+    #full=$(cat $BATTERY/energy_full)
+    capacity=$(cat $BATTERY/capacity)
+    status=$(cat $BATTERY/status)
+    case ${status} in
+        "Discharging") echo "*${capacity}";;
+        *) echo "${capacity}";;
+    esac
 }
 
 main

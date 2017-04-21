@@ -38,13 +38,13 @@ $HOME/.local/bin:$HOME/.rbenv/bin:\
 $PATH
 
 ## LANGUAGE OVERLAY MANAGERS
-. $HOME/.nix-profile/etc/profile.d/nix.sh # NIX
+# . $HOME/.nix-profile/etc/profile.d/nix.sh # NIX
 . ~/.erlangs/default/activate  # ERLANG
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex" #Elixir
 kiex use 1.4.2 > /dev/null
 
 # . /home/p/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-eval "$(rbenv init -)"         # RUBY
+# eval "$(rbenv init -)"         # RUBY
 # export NVM_DIR="/home/p/.nvm"  # NODE
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # NODE
 
