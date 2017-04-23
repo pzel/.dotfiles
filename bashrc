@@ -55,6 +55,8 @@ dps() { docker ps; }
 dimg() { docker images; }
 drm() { docker ps -a | awk '{print $1}' | grep -v ID | xargs docker rm -f; }
 drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f; }
+nix?(){ nix-env -qa \* -P | fgrep -i "$1"; }
+
 alias xbq='xbps-query -Rs'
 alias xbi='sudo xbps-install -S'
 alias ns='nix-shell .'
