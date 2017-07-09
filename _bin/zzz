@@ -1,5 +1,6 @@
 #!/bin/bash
 set -x
 . /home/p/.Xdbus
-su -c '/usr/bin/slock & sleep 0.5' p 
+su -c '/usr/bin/slock & sleep 0.5' p
+su -c 'ssh-add -D' p
 /usr/bin/zzz
