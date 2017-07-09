@@ -6,8 +6,8 @@ main() {
     status=$(cat $BATTERY/status)
     icon=$(block ${capacity})
     case ${status} in
-        "Discharging") echo -n "!${icon}!" ;;
-        *) echo -n "|${icon}|" ;;
+        "Discharging") echo -n " ${icon}🠛" ;;
+        *) echo -n " ${icon} " ;;
     esac
 }
 
