@@ -1,0 +1,2 @@
+#!/bin/sh
+mplayer -quiet -vc null -vo nul-vc null -vo null "$@"

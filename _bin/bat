@@ -5,6 +5,7 @@ main() {
     capacity=$(cat $BATTERY/capacity)
     status=$(cat $BATTERY/status)
     icon=$(block ${capacity})
+    echo ${capacity} >&2
     case ${status} in
         "Discharging") echo -n " ${icon}🠛" ;;
         *) echo -n " ${icon} " ;;

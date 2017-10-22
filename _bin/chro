@@ -1,1 +1,2 @@
+#!/bin/sh
 chromium --password-store=basic --user-data-dir=$HOME/g/.chromium-profile "$@" 2>&1

@@ -2,9 +2,9 @@
 if pgrep -u $USER -f emacs > /dev/null;
 then
 	echo "Emacs found" 1>&2
-	nohup  emacsclient "$@" > /dev/null 2>&1 &
-	sleep 1		
-  xdotool windowactivate $(xdotool search --class emacs | tail -1) > /dev/null 2>&1 &
+	nohup emacsclient "$@" > /dev/null 2>&1 &
+	sleep 0.5		
+	xdotool windowactivate $(xdotool search --class emacs | tail -1) > /dev/null 2>&1 &
 else
-	nohup  bash -c "emacs $@" > /dev/null / 2>&1 &
+	nohup  bash -c "emacs --debug-init $@" > /dev/null / 2>&1 &
 fi

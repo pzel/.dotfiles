@@ -30,12 +30,16 @@ export MANPAGER=/usr/bin/less
 ## GPG AGENT
 GPG_TTY=$(tty) export GPG_TTY
 export GPG_AGENT_INFO=""
+export SBTROOT=/opt/sbt
+export SCALAROOT=/opt/scala
 
 ## PATHS
 export LC_ALL=en_US.UTF-8
 export PATH=/opt/texlive/2016/bin/x86_64-linux:\
 $HOME/.local/bin:$HOME/.rbenv/bin:\
+$SBTROOT/bin:$SCALAROOT/bin:\
 $PATH
+
 
 ## LANGUAGE OVERLAY MANAGERS
 # . $HOME/.nix-profile/etc/profile.d/nix.sh # NIX
@@ -61,4 +65,3 @@ alias xbq='xbps-query -Rs'
 alias xbi='sudo xbps-install -S'
 alias ns='nix-shell .'
 alias mpl='mplayer -af scaletempo'
-
