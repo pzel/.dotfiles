@@ -40,6 +40,8 @@ $HOME/.local/bin:$HOME/.rbenv/bin:\
 $SBTROOT/bin:$SCALAROOT/bin:\
 $PATH
 
+export PATSHOME=/usr/local/lib/ats2-postiats-0.3.8
+export PATSCONTRIB=$PATSHOME
 
 ## LANGUAGE OVERLAY MANAGERS
 # . $HOME/.nix-profile/etc/profile.d/nix.sh # NIX
