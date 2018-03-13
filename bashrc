@@ -17,6 +17,7 @@ fi;
 
 
 ## BASH TWEAKS
+export NO_COLOR=1
 export HISTCONTROL=ignoreboth
 shopt -s histappend
 export HISTSIZE=100000
@@ -30,14 +31,16 @@ export MANPAGER=/usr/bin/less
 ## GPG AGENT
 GPG_TTY=$(tty) export GPG_TTY
 export GPG_AGENT_INFO=""
-export SBTROOT=/opt/sbt
-export SCALAROOT=/opt/scala
+
+## ALIEN STUFF IN OPT
+export PHP=/opt/php5/
+export ARC=/opt/phacility/arcanist
 
 ## PATHS
 export LC_ALL=en_US.UTF-8
 export PATH=/opt/texlive/2016/bin/x86_64-linux:\
 $HOME/.local/bin:$HOME/.rbenv/bin:\
-$SBTROOT/bin:$SCALAROOT/bin:\
+$PHP/bin:$ARC/bin:\
 $PATH
 
 export PATSHOME=/usr/local/lib/ats2-postiats-0.3.8
@@ -47,19 +50,19 @@ export PATSCONTRIB=$PATSHOME
 # . $HOME/.nix-profile/etc/profile.d/nix.sh # NIX
 . ~/.erlangs/default/activate  # ERLANG
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex" #Elixir
-kiex use 1.4.2 > /dev/null
+kiex use default > /dev/null
 
-# . /home/p/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+. /home/p/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 # eval "$(rbenv init -)"         # RUBY
 # export NVM_DIR="/home/p/.nvm"  # NODE
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # NODE
 
 
 ## ALIA
-EDITOR=ema export EDITOR
+export EDITOR=ema
 dps() { docker ps; }
 dimg() { docker images; }
-drm() { docker ps -a | awk '{print $1}' | grep -v ID | xargs docker rm -f; }
+drm() { docker ps -a | awk '{print $1}' | grep -v CONTAINER | xargs docker rm -f; }
 drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f; }
 nix?(){ nix-env -qa \* -P | fgrep -i "$1"; }
 

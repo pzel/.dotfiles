@@ -16,6 +16,10 @@ old_version() {
 new_version() {
   /usr/bin/curl -q $BIGLIST > /tmp/hosts.new &&\
     /bin/cat /etc/hosts.local /tmp/hosts.new > /etc/hosts &&\
+    sed -i '/static.licdn.com/d' /etc/hosts &&\
+    sed -i '/www.linkedin.com/d' /etc/hosts &&\
+    sed -i '/media.licdn.com/d' /etc/hosts &&\
+    sed -i '/platform.linkedin.com/d' /etc/hosts &&\
     echo "# Updated on $(/bin/hostname) at: $(/bin/date)" >> /etc/hosts
 }
 

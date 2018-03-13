@@ -1,6 +1,8 @@
 #!/bin/bash
-#set -x
+
+CHRO=/home/p/.local/bin/chro
+
 if ! (pgrep -fl chromium  > /dev/null 2>&1)
 then firefox "$@" > /dev/null 2>&1
-else chro "$@" > /dev/null 2>&1
+else ${CHRO} "$@" > /dev/null 2>&1
 fi

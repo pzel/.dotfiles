@@ -5,11 +5,16 @@ main() {
     capacity=$(cat $BATTERY/capacity)
     status=$(cat $BATTERY/status)
     icon=$(block ${capacity})
+    #icon=$(number ${capacity})
     echo ${capacity} >&2
     case ${status} in
-        "Discharging") echo -n " ${icon}🠛" ;;
-        *) echo -n " ${icon} " ;;
+        "Discharging") echo -n "${icon}🠛" ;;
+        *) echo -n "${icon} " ;;
     esac
+}
+
+number() {
+  echo -n "$(($1/10))"
 }
 
 block() {

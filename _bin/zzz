@@ -1,6 +1,8 @@
 #!/bin/bash
 set -x
 . /home/p/.Xdbus
+export DISPLAY=:0
+#su -c '/usr/bin/xlock & sleep 0.1' p
 su -c '/usr/bin/slock & sleep 0.3' p
 #su -c 'ssh-add -D' p
 /usr/bin/zzz
