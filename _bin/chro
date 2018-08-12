@@ -1,3 +1,4 @@
 #!/bin/sh
-EXECUTABLE=$HOME/src/chromium-latest-linux/517597/chrome-linux/chrome
-$EXECUTABLE --password-store=basic --user-data-dir=$HOME/g/.chromium-profile "$@" > /dev/null 2>&1
+set -x
+EXECUTABLE=$HOME/src/chromium-latest-linux/latest/chrome
+$EXECUTABLE --password-store=basic --user-data-dir=$HOME/w/.chromium-profile "$@" > /dev/null 2>&1

@@ -12,7 +12,7 @@ if [ "$INSIDE_ACME" = "true" ] ; then
   PS1="\$(awd)$ " export PS1;
   unset COLORTERM
 else
-    PS1="$ " export PS1;
+    PS1="\$(pwd)$ " export PS1;
 fi;
 
 
@@ -32,31 +32,29 @@ export MANPAGER=/usr/bin/less
 GPG_TTY=$(tty) export GPG_TTY
 export GPG_AGENT_INFO=""
 
-## ALIEN STUFF IN OPT
-export PHP=/opt/php5/
-export ARC=/opt/phacility/arcanist
-
 ## PATHS
-export LC_ALL=en_US.UTF-8
-export PATH=/opt/texlive/2016/bin/x86_64-linux:\
-$HOME/.local/bin:$HOME/.rbenv/bin:\
-$PHP/bin:$ARC/bin:\
-$PATH
+export GOPATH=$HOME/src/go
 
 export PATSHOME=/usr/local/lib/ats2-postiats-0.3.8
 export PATSCONTRIB=$PATSHOME
 
+export LC_ALL=en_US.UTF-8
+export PATH=/opt/texlive/2017/bin/x86_64-linux:\
+$HOME/.local/bin:$HOME:$GOPATH/bin:.rbenv/bin:\
+$PATH
+
+
+
 ## LANGUAGE OVERLAY MANAGERS
-# . $HOME/.nix-profile/etc/profile.d/nix.sh # NIX
-. ~/.erlangs/default/activate  # ERLANG
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex" #Elixir
+. ~/.erlangs/20/activate
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 kiex use default > /dev/null
 
 . /home/p/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
 # eval "$(rbenv init -)"         # RUBY
 # export NVM_DIR="/home/p/.nvm"  # NODE
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # NODE
-
 
 ## ALIA
 export EDITOR=ema
@@ -65,8 +63,22 @@ dimg() { docker images; }
 drm() { docker ps -a | awk '{print $1}' | grep -v CONTAINER | xargs docker rm -f; }
 drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f; }
 nix?(){ nix-env -qa \* -P | fgrep -i "$1"; }
+wal(){
+  WALLAROO=$HOME/w/wallaroo
+  (cd $WALLAROO && echo "Using Machida $(git describe --all --long)")
+  export PYTHONPATH=$PYTHONPATH:$WALLAROO/machida:.
+  ln -fs $WALLAROO/machida/build/machida $HOME/bin/machida
+  ln -fs $WALLAROO/giles/sender/sender $HOME/bin/giles_sender
+}
 
 alias xbq='xbps-query -Rs'
 alias xbi='sudo xbps-install -S'
 alias ns='nix-shell .'
 alias mpl='mplayer -af scaletempo'
+alias ghcit='ghci -XAllowAmbiguousTypes -XDataKinds -XGADTs -XKindSignatures -XMultiParamTypeClasses -XFlexibleInstances -XFunctionalDependencies -XTypeOperators -XUndecidableInstances -XTypeFamilies -XDataKinds -XPolyKinds -XTypeOperators'
+
+#X=$(nmcli connection   | grep  SHAW-AA0149 | awk {print })
+#nmcli connect up $X
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin

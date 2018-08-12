@@ -9,6 +9,7 @@ keycode 118 = Delete
 
 ! PrintScrn is caps lock
 keycode 107 = Caps_Lock
+!keycode 107 = Menu
 
 !keycode 66 = Control_L Control_L Control_L
 !add Control = Control_L
