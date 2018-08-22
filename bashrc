@@ -40,19 +40,17 @@ export PATSCONTRIB=$PATSHOME
 
 export LC_ALL=en_US.UTF-8
 export PATH=/opt/texlive/2017/bin/x86_64-linux:\
-$HOME/.local/bin:$HOME:$GOPATH/bin:.rbenv/bin:\
+$HOME/.local/bin:$HOME:$GOPATH/bin:$HOME/.rbenv/bin:\
 $PATH
-
-
 
 ## LANGUAGE OVERLAY MANAGERS
 . ~/.erlangs/20/activate
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 kiex use default > /dev/null
 
-. /home/p/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+#. /home/p/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
-# eval "$(rbenv init -)"         # RUBY
+eval "$(rbenv init -)"         # RUBY
 # export NVM_DIR="/home/p/.nvm"  # NODE
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # NODE
 
