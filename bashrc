@@ -10,7 +10,7 @@ fi
 if [ -n "$INSIDE_ACME" ] ; then
   PS1="\$(awd)$ " export PS1;
   unset COLORTERM
-elsif [ -n "$INSIDE_EMACS" ] ; then
+elif [ -n "$INSIDE_EMACS" ] ; then
   unset COLORTERM
   PS1="\$(basename \$(pwd))$ " export PS1;
 else
