@@ -39,10 +39,11 @@ export GOPATH=$HOME/src/go
 export PATSHOME=/usr/local/lib/ats2-postiats-0.3.8
 export PATSCONTRIB=$PATSHOME
 export OPENRESTY_PATH=/usr/local/openresty/bin
+export OPENRESTY_NGINX_PATH=/usr/local/openresty/nginx/sbin
 
 export PATH=/opt/texlive/2017/bin/x86_64-linux:\
 $HOME/.local/bin:$HOME:$GOPATH/bin:$HOME/.rbenv/bin:\
-$OPENRESTY_PATH:\
+$OPENRESTY_PATH:$OPENRESTY_NGINX_PATH:\
 $PATH
 
 ## LANGUAGE OVERLAY MANAGERS
@@ -93,5 +94,5 @@ alias ghcit='ghci -XAllowAmbiguousTypes -XDataKinds -XGADTs -XKindSignatures -XM
 
 #X=$(nmcli connection   | grep  SHAW-AA0149 | awk {print })
 #nmcli connect up $X
-
+export JAVA_HOME=/usr
 export PATH=$PATH:$HOME/.pulumi/bin
