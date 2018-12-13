@@ -70,6 +70,7 @@ wal() {
   (cd $WAL_SRC_/machida && find | grep '.pyc$' | xargs -L1 rm)
   export PYTHONPATH=$PYTHONPATH:$WAL_SRC_/machida:$WAL_SRC_/machida/lib:.
   ln -fs $WAL_SRC_/machida/build/machida $HOME/bin/machida
+  ln -fs $WAL_SRC_/machida3/build/machida3 $HOME/bin/machida3
   ln -fs $WAL_SRC_/giles/sender/sender $HOME/bin/sender
   ln -fs $WAL_SRC_/utils/cluster_shutdown/cluster_shutdown $HOME/bin/cluster_shutdown
   ln -fs $WAL_SRC_/testing/tools/external_sender/external_sender $HOME/bin/external_sender
@@ -81,6 +82,8 @@ build_wal(){
 	echo "Building Wallaroo $(git describe --all --long)")
   (cd $WAL_SRC_/machida && rm -f build/machida &&
 	make build-machida debug=true)
+  (cd $WAL_SRC_/machida3 && rm -f build/machida3 &&
+	make build-machida3 debug=true)
   (cd $WAL_SRC_/giles/sender && make debug=true)
   (cd $WAL_SRC_/utils/cluster_shutdown && make debug=true)
   (cd $WAL_SRC_/testing/tools/external_sender && make debug=true)
