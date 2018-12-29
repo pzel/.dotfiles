@@ -89,6 +89,10 @@ build_wal(){
   (cd $WAL_SRC_/testing/tools/external_sender && make debug=true)
 }
 
+pex() { python3 -c "exec(\"$*\")"; }
+
+pev() { python3 -c "print(eval(\"$*\"))"; }
+
 alias xbq='xbps-query -Rs'
 alias xbi='sudo xbps-install -S'
 alias w3='w3m https://duckduckgo.com'

@@ -1,26 +1,3 @@
 #!/bin/sh
-# The egg mouse is super sensitive, even with the
-# accel knobs turned to 0 in the GUI
-# Setting up constant deceleration helps a lot.
-
-SLEEPTIME=10
-
-set_accel(){
-    xinput --set-prop "HID 04d9:2082" "libinput Accel Speed" -0.9
-}
-
-get_accel(){
-    xinput list-props "HID 04d9:2082" \
-        | grep 'libinput Accel Speed (291)' \
-        | awk '{print $5}'
-}
-
-if [ "" = "$1" ];
-then set_accel ;  # one-shot mode
-else              # monitor and set if needed
-    while true; do
-      ACCEL=$(get_accel)
-      if [ "$ACCEL" = "0.000000" ]; then set_accel ; fi
-      sleep "$SLEEPTIME"
-    done
-fi
+id=$(xinput list --id-only 'Logitech USB Trackball')
+xinput set-button-map ${id} 1 2 3 4 5 6 7 2 2
