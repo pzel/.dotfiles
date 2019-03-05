@@ -1,14 +1,19 @@
 Emacs*useXIM: true
 URxvt.scrollBar:  false
-URxvt.font: 8x13bold
+; URxvt.font: 8x13bold
+;URxvt.font: xft:fira mono:size=14
+URxvt*.font: xft:Iosevka:style=Regular:size=12
+URxvt*.boldFont: xft:Iosevka:style=Bold:size=12
+URxvt*.italicFont: xft:Iosevka:style=Italic:size=12
+URxvt*.boldItalicFont: xft:Iosevka:style=Bold Italic:size=12
+
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: false
-XtcrollBar:  false
+
 xterm*font: 8x13bold
 xterm.boldFont: 8x13bold
 xterm*scrollTtyOutput: false
 xterm*scrollWithBuffer: false
 xterm*reverseVideo: off
 URxvt.iso14755_52: false
-
-Xft.dpi: 136
+Xft.dpi: 96

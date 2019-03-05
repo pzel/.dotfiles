@@ -27,7 +27,6 @@ export HISTFILESIZE=200000
 shopt -s checkwinsize
 if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
 stty -ixon
-export MANPAGER=/usr/bin/less
 export LC_ALL=en_US.UTF-8
 
 ## GPG AGENT
@@ -47,13 +46,14 @@ $OPENRESTY_PATH:$OPENRESTY_NGINX_PATH:\
 $PATH
 
 ## LANGUAGE OVERLAY MANAGERS
-. ~/.erlangs/20/activate
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
-kiex use default > /dev/null
+#. ~/.erlangs/20/activate
+test -s "$HOME/.kiex/scripts/kiex" && \
+  source "$HOME/.kiex/scripts/kiex" && \
+  (kiex use default > /dev/null)
 
 #. /home/p/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
-eval "$(rbenv init -)"         # RUBY
+#eval "$(rbenv init -)"         # RUBY
 # export NVM_DIR="/home/p/.nvm"  # NODE
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # NODE
 
@@ -63,7 +63,6 @@ dps() { docker ps; }
 dimg() { docker images; }
 drm() { docker ps -a | awk '{print $1}' | grep -v CONTAINER | xargs docker rm -f; }
 drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f; }
-nix?(){ nix-env -qa \* -P | fgrep -i "$1"; }
 
 export WAL_SRC_=$HOME/w/wallaroo
 wal() {
