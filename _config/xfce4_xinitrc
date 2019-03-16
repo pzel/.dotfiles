@@ -1,0 +1,11 @@
+#!/bin/sh
+
+killall -9 redshift-gtk || true
+killall -9 redshift || true
+killall -9 xbindkeys || true
+
+redshift-gtk -t 6000:4000 -l 51:19 &
+xbindkeys &
+xmodmap ~/.Xmodmap
+kupfer >/dev/null 2>&1 &
+
