@@ -1,0 +1,8 @@
+#!/bin/sh
+RET=$(amixer set Master toggle 2>&1 | grep 'off')
+if [ -n "$RET" ] # off has been toggled
+then
+  notify-send -t 3000 -i audio-volume-muted "Muted"
+else
+  notify-send -t 3000 -i audio-volume-medium "Unmuted"
+fi

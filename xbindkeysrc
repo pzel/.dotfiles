@@ -5,7 +5,7 @@
 "kupfer"
     Mod4 + space
 
-"amixer -q set Master toggle"
+"toggle_mute"
     XF86AudioMute
 "amixer -q set Master 10%-"
     XF86AudioLowerVolume

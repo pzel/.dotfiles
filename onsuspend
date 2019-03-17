@@ -1,3 +1,2 @@
 #!/bin/sh
-xset s activate
-sleep 1
+xset s activate && sleep 1
