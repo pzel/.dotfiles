@@ -9,4 +9,5 @@ xmodmap ~/.Xmodmap
 xset s 600 &
 xss-lock  -- slock &
 kupfer >/dev/null 2>&1 &
+exec startxfce4
 

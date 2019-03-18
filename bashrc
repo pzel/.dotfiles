@@ -46,7 +46,8 @@ $OPENRESTY_PATH:$OPENRESTY_NGINX_PATH:\
 $PATH
 
 ## LANGUAGE OVERLAY MANAGERS
-#. ~/.erlangs/20/activate
+test -s  ~/.erlangs/20/activate &&\
+  source ~/.erlangs/20/activate
 test -s "$HOME/.kiex/scripts/kiex" && \
   source "$HOME/.kiex/scripts/kiex" && \
   (kiex use default > /dev/null)
