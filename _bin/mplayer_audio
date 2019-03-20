@@ -1,2 +1,2 @@
 #!/bin/sh
-mplayer -ao pulse -quiet -vo null "$@"
+mplayer -ao alsa -quiet -vo null "$@"

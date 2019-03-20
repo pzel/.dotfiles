@@ -2,13 +2,16 @@
 
 "xfterm"
     Mod4 + F5
+
 "kupfer"
     Mod4 + space
 
 "toggle_mute"
     XF86AudioMute
+
 "amixer -q set Master 10%-"
     XF86AudioLowerVolume
+
 "amixer -q set Master 10%+"
     XF86AudioRaiseVolume
 

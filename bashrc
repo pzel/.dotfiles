@@ -54,9 +54,14 @@ test -s "$HOME/.kiex/scripts/kiex" && \
 
 #. /home/p/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
-#eval "$(rbenv init -)"         # RUBY
-# export NVM_DIR="/home/p/.nvm"  # NODE
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # NODE
+rbenv_init() {
+  eval "$(rbenv init -)"
+}
+
+nvm_init() {
+ export NVM_DIR="/home/p/.nvm"
+ [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+}
 
 ## ALIASES, ETC.
 export EDITOR=ema
@@ -98,6 +103,7 @@ alias xbi='sudo xbps-install -S'
 alias w3='w3m https://duckduckgo.com'
 alias mpl='mplayer -af scaletempo'
 alias ghcit='ghci -XAllowAmbiguousTypes -XDataKinds -XGADTs -XKindSignatures -XMultiParamTypeClasses -XFlexibleInstances -XFunctionalDependencies -XTypeOperators -XUndecidableInstances -XTypeFamilies -XDataKinds -XPolyKinds -XTypeOperators'
+alias x='exec ssh-agent startx'
 
 #X=$(nmcli connection   | grep  SHAW-AA0149 | awk {print })
 #nmcli connect up $X
