@@ -3,6 +3,12 @@
 "xfterm"
     Mod4 + F5
 
+"screenshot"
+    Shift+Mod4 + 4 + Release
+
+"thunar"
+    Mod4 + h
+
 "kupfer"
     Mod4 + space
 
