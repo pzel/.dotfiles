@@ -1,5 +1,7 @@
 #!/bin/sh
-export GTK_IM_MODULE=ibus
+#export GTK_IM_MODULE=ibus
+# firefox needs xim :/
+export GTK_IM_MODULE=xim
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 export QT4_IM_MODULE=ibus

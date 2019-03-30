@@ -1,5 +1,8 @@
 # For the benefit of emacs users: -*- shell-script -*-
 
+"zeal"
+    Mod4 + F1
+
 "xfterm"
     Mod4 + F5
 
