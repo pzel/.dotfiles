@@ -72,7 +72,7 @@ drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f;
 
 export WAL_SRC_=$HOME/w/wallaroo
 wal() {
-  (cd $WAL_SRC_/machida && find | grep '.pyc$' | xargs -L1 rm)
+  (cd $WAL_SRC_/machida && find | grep '.pyc$' | xargs -L1 rm) 2>/dev/null
   export PYTHONPATH=$PYTHONPATH:$WAL_SRC_/machida:$WAL_SRC_/machida/lib:.
   ln -fs $WAL_SRC_/machida/build/machida $HOME/bin/machida
   ln -fs $WAL_SRC_/machida3/build/machida3 $HOME/bin/machida3
@@ -80,6 +80,7 @@ wal() {
   ln -fs $WAL_SRC_/utils/cluster_shutdown/cluster_shutdown $HOME/bin/cluster_shutdown
   ln -fs $WAL_SRC_/testing/tools/external_sender/external_sender $HOME/bin/external_sender
   (cd $WAL_SRC_ && echo "Using Machida $(git describe --all --long)")
+  python -c 'import wallaroo' 2>/dev/null || (echo "wallaroo.py not in python path"; exit 1)
 }
 
 build_wal(){
