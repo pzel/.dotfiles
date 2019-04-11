@@ -35,15 +35,7 @@ export GPG_AGENT_INFO=""
 
 ## PATHS
 export GOPATH=$HOME/src/go
-export PATSHOME=/usr/local/lib/ats2-postiats-0.3.8
-export PATSCONTRIB=$PATSHOME
-export OPENRESTY_PATH=/usr/local/openresty/bin
-export OPENRESTY_NGINX_PATH=/usr/local/openresty/nginx/sbin
-
-export PATH=/opt/texlive/2017/bin/x86_64-linux:\
-$HOME/.local/bin:$HOME:$GOPATH/bin:$HOME/.rbenv/bin:\
-$OPENRESTY_PATH:$OPENRESTY_NGINX_PATH:\
-$PATH
+export PATH=$HOME/bin:$GOPATH/bin:$HOME/.rbenv/bin:$HOME/.pulumi/bin:$PATH
 
 ## LANGUAGE OVERLAY MANAGERS
 test -s  ~/.erlangs/20/activate &&\
@@ -52,15 +44,17 @@ test -s "$HOME/.kiex/scripts/kiex" && \
   source "$HOME/.kiex/scripts/kiex" && \
   (kiex use default > /dev/null)
 
-#. /home/p/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-
 rbenv_init() {
   eval "$(rbenv init -)"
 }
 
 nvm_init() {
- export NVM_DIR="/home/p/.nvm"
- [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  export NVM_DIR="/home/p/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+}
+
+opam_init() {
+  . /home/p/.opam/opam-init/init.sh > /dev/null 2> /dev/null
 }
 
 ## ALIASES, ETC.
@@ -70,6 +64,7 @@ dimg() { docker images; }
 drm() { docker ps -a | awk '{print $1}' | grep -v CONTAINER | xargs docker rm -f; }
 drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f; }
 
+export PONYCFLAGS="--verbose=1"
 export WAL_SRC_=$HOME/w/wallaroo
 wal() {
   (cd $WAL_SRC_/machida && find | grep '.pyc$' | xargs -L1 rm) 2>/dev/null
@@ -101,6 +96,7 @@ pev() { python3 -c "print(eval(\"$*\"))"; }
 
 alias xbq='xbps-query -Rs'
 alias xbi='sudo xbps-install -S'
+alias xbr='sudo xbps-remove -R'
 alias w3='w3m https://duckduckgo.com'
 alias mpl='mplayer -af scaletempo'
 alias ghcit='ghci -XAllowAmbiguousTypes -XDataKinds -XGADTs -XKindSignatures -XMultiParamTypeClasses -XFlexibleInstances -XFunctionalDependencies -XTypeOperators -XUndecidableInstances -XTypeFamilies -XDataKinds -XPolyKinds -XTypeOperators'
@@ -109,4 +105,4 @@ alias x='exec ssh-agent startx'
 #X=$(nmcli connection   | grep  SHAW-AA0149 | awk {print })
 #nmcli connect up $X
 export JAVA_HOME=/usr
-export PATH=$PATH:$HOME/.pulumi/bin
+
