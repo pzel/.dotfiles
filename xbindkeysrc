@@ -12,6 +12,9 @@
 "xfterm"
     Mod4 + F5
 
+"xfterm urxvt"
+    Shift+Mod4 + F5 + Release
+
 "slock"
     Control+Mod4 + Home
 
