@@ -1,12 +1,17 @@
 #!/bin/sh
 set -x
-T="${1:='xfce4-terminal'}"
-pid=$(pgrep -fl "$T" | grep -v xfterm | grep -v grep)
+if [ -z "$1" ]; then
+  T=xfce4-terminal
+else
+  T=$1
+fi	
+
+pid=$(pgrep -fl "$T" | grep -v xfterm | grep -v grep | grep -v sh)
 if [ -z "$pid" ]; then
-  nohup  bash -c "$T" > /dev/null / 2>&1 &
+  nohup  bash -c "$T" > /tmp/xfterm 2>&1 &
   sleep 3; exit 0
 else
-  W=$(xdotool search --class $T | tail -1)
+  W="$(xdotool search --class $T | tail -1)"
   xdotool windowactivate "$W"
   xdotool windowfocus "$W"
   exit 0

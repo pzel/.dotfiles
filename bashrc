@@ -102,6 +102,7 @@ alias w3='w3m https://duckduckgo.com'
 alias mpl='mplayer -af scaletempo'
 alias ghcit='ghci -XAllowAmbiguousTypes -XDataKinds -XGADTs -XKindSignatures -XMultiParamTypeClasses -XFlexibleInstances -XFunctionalDependencies -XTypeOperators -XUndecidableInstances -XTypeFamilies -XDataKinds -XPolyKinds -XTypeOperators'
 alias x='exec ssh-agent startx'
+alias tmx='(pgrep tmux >/dev/null 2>&1) && tmux a || tmux'
 
 #X=$(nmcli connection   | grep  SHAW-AA0149 | awk {print })
 #nmcli connect up $X

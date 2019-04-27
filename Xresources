@@ -33,7 +33,7 @@ urxvt*color15:    #f2f2f2
 !URxvt*italicFont: xft:Monospace:style=Italic:size=12
 !URxvt*boldItalicFont: xft:Monospace:style=Bold Italic:size=12
 
-URxvt*font: -xos4-*-*-*-*-*-12-*-*-*-*-*-iso10646-1
+URxvt*font: -xos4-terminus-*-*-*-*-14-*-*-*-*-*-iso10646-1
 
 URxvt*scrollTtyKeypress: true
 URxvt*scrollTtyOutput: false
