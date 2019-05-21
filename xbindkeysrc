@@ -1,9 +1,15 @@
 # For the benefit of emacs users: -*- shell-script -*-
 
-"xvkbd -text '\C\[Insert]'"
+#"xvkbd -text '\C\[Insert]'"
+#    b:9
+
+#"xvkbd -text '\S\[Insert]'"
+#    b:8
+
+"xvkbd -text '\[Prior]'"
     b:9
 
-"xvkbd -text '\S\[Insert]'"
+"xvkbd -text '\[Next]'"
     b:8
 
 "zeal"
@@ -13,7 +19,7 @@
     Mod4 + F5
 
 "xfterm urxvt"
-    Shift+Mod4 + F5 + Release
+    Mod4 + F6
 
 "slock"
     Control+Mod4 + Home

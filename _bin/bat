@@ -9,6 +9,7 @@ main() {
     echo ${capacity} >&2
     case ${status} in
         "Discharging") echo -n "${icon}🠛" ;;
+        "Charging") echo -n "${icon}🠙" ;;
         *) echo -n "${icon} " ;;
     esac
 }
