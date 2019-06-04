@@ -7,7 +7,18 @@ URxvt.perl-ext-common: default,clipboard
 urxvt*foreground: #f2f2f2
 urxvt*background: #101010
 
-urxvt*color0:    #6c6c6c
+!!   Normal      Bright
+!!   --------    -------
+!!   0 Black      8 Black
+!!   1 Red        9 Red
+!!   2 Yellow    10 Yellow
+!!   3 Green     11 Green
+!!   4 Blue      12 Blue
+!!   5 Magenta   13 Magenta
+!!   6 Cyan      14 Cyan
+!!   7 White     15 White
+
+urxvt*color0:    #101010
 urxvt*color1:    #e9897c
 urxvt*color2:    #b6e77d
 urxvt*color3:    #ecebbe
@@ -15,7 +26,7 @@ urxvt*color4:    #a9cdeb
 urxvt*color5:    #ea96eb
 urxvt*color6:    #c9caec
 urxvt*color7:    #f2f2f2
-urxvt*color8:    #747474
+urxvt*color8:    #303030
 urxvt*color9:    #f9f2f6
 urxvt*color10:    #c3f786
 urxvt*color11:    #fcfbcc

@@ -1,0 +1,12 @@
+#!/bin/sh
+# launch emacs in terminal, or use emacsclient
+OPTS="-nw -fg white -bg black"
+
+if pgrep -u $USER -f emacs > /dev/null;
+then
+	echo "Emacs found" 1>&2
+	emacsclient $OPTS "$@" > /dev/null 2>&1
+
+else
+	bash -c "emacs $OPTS $@" > /dev/null / 2>&1
+fi
