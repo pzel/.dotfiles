@@ -1,0 +1,10 @@
+killall -9 redshift-gtk || true
+killall -9 redshift || true
+killall -9 xbindkeys || true
+
+xset s 600 &
+xss-lock  -- slock &
+redshift-gtk -t 5000:4000 -l 51:19 &
+xbindkeys -f ~/.xbindkeys_xfce &
+xmodmap ~/.Xmodmap
+kupfer >/dev/null 2>&1 &

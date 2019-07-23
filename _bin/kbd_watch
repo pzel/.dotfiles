@@ -1,0 +1,13 @@
+#!/bin/sh
+ID="usb-CATEX_TECH._KB84M-S_CA2015040001-event-kbd"
+DEV="/dev/input/by-id/${ID}"	
+CMD="ls ${DEV} -asl"
+RES=$(${CMD} 2>&1)
+while (true) do
+  NEWRES=$(${CMD} 2>&1)
+  if [ "$NEWRES" != "$RES" ]; then
+    xmodmap ~/.Xmodmap
+  fi
+  RES="$NEWRES"
+  sleep 5
+done

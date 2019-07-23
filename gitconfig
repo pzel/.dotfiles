@@ -6,7 +6,8 @@
 	br = branch
 	cm = commit
 	co = checkout
-	rb = rebase			
+  cp = cherry-pick
+	rb = rebase
 	st = status
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [core]

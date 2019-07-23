@@ -37,12 +37,19 @@ export GPG_AGENT_INFO=""
 export GOPATH=$HOME/src/go
 export PATH=$HOME/bin:$GOPATH/bin:$HOME/.rbenv/bin:$HOME/.pulumi/bin:$PATH
 
+## ALIA
+. "$HOME"/.alia
+
 ## LANGUAGE OVERLAY MANAGERS
-test -s  ~/.erlangs/20/activate &&\
-  source ~/.erlangs/20/activate
-test -s "$HOME/.kiex/scripts/kiex" && \
-  source "$HOME/.kiex/scripts/kiex" && \
-  (kiex use default > /dev/null)
+#test -s  ~/.erlangs/20/activate &&\
+#  source ~/.erlangs/20/activate
+#test -s "$HOME/.kiex/scripts/kiex" && \
+#  source "$HOME/.kiex/scripts/kiex" && \
+#  (kiex use default > /dev/null)
+
+## ASDF
+test -s "$HOME/.asdf/asdf.sh" &&\
+  . "$HOME/.asdf/asdf.sh"
 
 rbenv_init() {
   eval "$(rbenv init -)"
@@ -57,9 +64,8 @@ opam_init() {
   . /home/p/.opam/opam-init/init.sh > /dev/null 2> /dev/null
 }
 
-
 ## ALIASES, ETC.
-export EDITOR=ema
+export EDITOR=emx
 dps() { docker ps; }
 dimg() { docker images; }
 drm() { docker ps -a | awk '{print $1}' | grep -v CONTAINER | xargs docker rm -f; }
