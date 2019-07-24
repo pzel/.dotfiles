@@ -7,4 +7,5 @@ xss-lock  -- slock &
 redshift-gtk -t 5000:4000 -l 51:19 &
 xbindkeys -f ~/.xbindkeys_xfce &
 xmodmap ~/.Xmodmap
+~/bin/kbd_watch > /dev/null 2&1> &
 kupfer >/dev/null 2>&1 &
