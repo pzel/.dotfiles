@@ -1,7 +1,8 @@
 #!/bin/sh
 set -x
 if [ -z "$1" ]; then
-  T=xfce4-terminal
+#  T=xfce4-terminal
+   T=gnome-terminal	
 else
   T=$1
 fi	
