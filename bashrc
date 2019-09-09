@@ -41,11 +41,6 @@ export PATH=$HOME/bin:$GOPATH/bin:$HOME/.rbenv/bin:$HOME/.pulumi/bin:$PATH
 . "$HOME"/.alia
 
 ## LANGUAGE OVERLAY MANAGERS
-#test -s  ~/.erlangs/20/activate &&\
-#  source ~/.erlangs/20/activate
-#test -s "$HOME/.kiex/scripts/kiex" && \
-#  source "$HOME/.kiex/scripts/kiex" && \
-#  (kiex use default > /dev/null)
 
 ## ASDF
 test -s "$HOME/.asdf/asdf.sh" &&\
@@ -101,6 +96,7 @@ pex() { python3 -c "exec(\"$*\")"; }
 
 pev() { python3 -c "print(eval(\"$*\"))"; }
 
+alias g=git
 alias xbq='xbps-query -Rs'
 alias xbi='sudo xbps-install -S'
 alias xbr='sudo xbps-remove -R'

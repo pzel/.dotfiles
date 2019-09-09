@@ -6,11 +6,13 @@
 #"xvkbd -text '\S\[Insert]'"
 #    b:8
 
+# mouse-based pgup/dn
 "xvkbd -text '\[Prior]'"
     b:9
 
 "xvkbd -text '\[Next]'"
     b:8
+
 
 "zeal"
     Mod4 + F1
@@ -22,10 +24,13 @@
     Mod4 + F6
 
 "slock"
-    Control+Mod4 + Home
+    Control + Mod4 + Home
+
+"xcalib -i -a"
+    Control + Mod4 + End
 
 "screenshot"
-    Shift+Mod4 + 4 + Release
+    Shift + Mod4 + 4 + Release
 
 "thunar"
     Mod4 + h
@@ -42,15 +47,19 @@
 "amixer -q set Master on ; amixer -q set Master 10%+"
     XF86AudioRaiseVolume
 
-"light -U 10"
+"light -U 5"
     XF86MonBrightnessDown
-"light -U 10"
-    Mod4 + F11
+"light -U 5"
+    Mod4 + F11 + Release
 
-"light -A 10"
+"light -A 5"
     XF86MonBrightnessUp
-"light -A 10"
+"light -A 5"
     Mod4 + F12
+
+# Invert screen colors
+"xcalib -i -a"
+    Shift + Mod4 + F12 + Release
 
 # A list of keys is in /usr/include/X11/keysym.h and in
 # /usr/include/X11/keysymdef.h
