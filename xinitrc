@@ -9,12 +9,15 @@ export QT4_IM_MODULE=ibus
 #export GTK_IM_MODULE_FILE=/etc/gtk-2.0/gtk.immodules
 #export GTK_IM_MODULE_FILE=/usr/lib/gtk-3.0/3.0.0/immodules.cache
 
-
 killall -9 redshift-gtk || true
 killall -9 redshift || true
 killall -9 xbindkeys || true
 
+xset s 600 &
+xss-lock -- slock &
+nm-applet &
 redshift-gtk -t 5000:3000 -l 51:19 &
+setkkbmap pl &
 xbindkeys &
 xmodmap ~/.Xmodmap
 ibus-daemon --xim -dr &
@@ -22,4 +25,5 @@ kupfer >/dev/null 2>&1 &
 amixer -q set Headphone 85%
 amixer -q set PCM 90%
 amixer -q set Speaker 100%
-exec startxfce4
+xfce4-panel >/dev/null 2>&1 &
+exec xfwm4

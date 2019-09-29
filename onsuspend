@@ -1,3 +1,3 @@
 #!/bin/sh
-#xset -display :0 s activate
-#sleep 0.5
+xset -display :0.0 s activate
+sleep 0.5
