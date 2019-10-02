@@ -17,5 +17,6 @@ import_environment XAUTHORITY USER DISPLAY
 
 nm-online
 light -S 5
+setxkbmap pl &
 xmodmap ~/.Xmodmap
 echo "resumed at $(date)"
