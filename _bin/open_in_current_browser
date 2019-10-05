@@ -1,5 +1,4 @@
 #!/bin/bash
-
 CHRO=/home/p/.local/bin/chro
 
 if ! (pgrep -fl chromium  > /dev/null 2>&1)
