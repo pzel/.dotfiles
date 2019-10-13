@@ -1,0 +1,98 @@
+{
+  Dock = {
+    Applications1200 = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = Yes;
+        Command = "/usr/bin/WPrefs";
+      },
+      {
+        Forced = No;
+        Name = wmsystemtray0.wmsystemtray;
+        DropCommand = "wmsystemtray %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,1";
+        Lock = Yes;
+        PasteCommand = "wmsystemtray %s";
+        Command = wmsystemtray;
+      }
+    );
+    AutoRaiseLower = Yes;
+    Applications = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = Yes;
+        Command = "/usr/bin/WPrefs";
+      },
+      {
+        Forced = No;
+        Name = wmsystemtray0.wmsystemtray;
+        DropCommand = "wmsystemtray %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,1";
+        Lock = Yes;
+        PasteCommand = "wmsystemtray %s";
+        Command = wmsystemtray;
+      }
+    );
+    Lowered = Yes;
+    Position = "0,0";
+  };
+  Clip = {
+    Forced = No;
+    Name = Logo.WMClip;
+    BuggyApplication = No;
+    DropCommand = "wmsetbg -u -t %d";
+    AutoLaunch = No;
+    Lock = No;
+    Position = "0,836";
+    Command = "-";
+  };
+  Applications = (
+    {
+      Name = "gnome-terminal-server.Gnome-terminal-server";
+      Shaded = No;
+      Miniaturized = No;
+      Command = "gnome-terminal-server";
+      Geometry = "952x1162+1+1";
+      Hidden = No;
+      Workspace = Main;
+      ShortcutMask = 0;
+    },
+    {
+      Name = firefox.Firefox;
+      Shaded = No;
+      Miniaturized = No;
+      Command = firefox;
+      Geometry = "957x1161+960+1";
+      Hidden = No;
+      Workspace = Main;
+      ShortcutMask = 0;
+    }
+  );
+  Drawers = ();
+  Workspaces = (
+    {
+      Clip = {
+        AutoRaiseLower = Yes;
+        Applications = ();
+        AutoCollapse = Yes;
+        Collapsed = Yes;
+        AutoAttractIcons = Yes;
+        Lowered = Yes;
+      };
+      Name = Main;
+    }
+  );
+  Workspace = Main;
+}

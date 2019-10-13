@@ -1,22 +1,8 @@
 #!/bin/bash
 set -x
 exec 2>&1 >> /tmp/onresume
-pid=$(pgrep X)
-pid=$(pgrep -P $pid -n)
-
-import_environment() {
-        (( pid )) && for var; do
-                IFS='=' read key val <(egrep -z "$var" /proc/$pid/environ)
-
-                printf -v "$key" %s "$val"
-                [[ ${!key} ]] && export "$key"
-        done
-}
-import_environment XAUTHORITY USER DISPLAY
-
-
 nm-online
-light -S 5
+#light -S 5
 setxkbmap pl &
 xmodmap ~/.Xmodmap
 echo "resumed at $(date)"

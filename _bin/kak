@@ -1,0 +1,4 @@
+#!/bin/sh
+REALKAK=/bin/kak
+export TERM=vt100
+$REALKAK $@

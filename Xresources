@@ -2,7 +2,7 @@ Emacs*useXIM: true
 URxvt.scrollBar:  false
 !URxvt.font: 8x13bold
 !URxvt.font: xft:fira mono:size=14
-
+Xcursor.size: 48
 URxvt.perl-ext-common: default,clipboard
 urxvt*foreground: #f2f2f2
 urxvt*background: #101010
@@ -60,4 +60,4 @@ xterm*scrollTtyOutput: false
 xterm*scrollWithBuffer: false
 xterm*reverseVideo: off
 URxvt.iso14755_52: false
-Xft.dpi: 96
+!Xft.dpi: 96

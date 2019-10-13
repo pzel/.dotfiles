@@ -1,3 +1,7 @@
-#!/bin/sh
-xset -display :0.0 s activate
-sleep 0.5
+#!/bin/bash
+set -x
+/bin/slock
+sleep 1
+echo "suspended at $(date)"
+
+
