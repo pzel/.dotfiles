@@ -28,9 +28,9 @@ setup() {
 	xset s 600 &
 	xss-lock -- slock &
 	kupfer --no-splash >/dev/null 2>&1 &
-	amixer -q set Headphone 85%
-	amixer -q set PCM 90%
-	amixer -q set Speaker 100%
+	amixer -q set Headphone 80%
+	amixer -q set PCM 80%
+	amixer -q set Speaker 80%
 	xsetroot -def -solid olivedrab
 }
 
