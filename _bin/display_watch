@@ -1,0 +1,31 @@
+#!/bin/bash
+# Watch for changes on DP-1 (displayport)
+# and configure known monitors.
+
+CARD=/sys/class/drm/card0-DP-1
+DEV=/dev/dri/card0
+
+is_plugged() {
+  test "$(cat ${CARD}/status)" = "connected"
+  return
+}
+
+is_nec() {
+  sleep 1 # try to wait out 'partial read' errors
+  (cat ${CARD}/edid | parse-edid | grep 'EA244WMi')
+  return
+}
+
+renice +19 $$ >/dev/null
+while (true) ; do
+  inotifywait -e attrib ${DEV}
+  if is_plugged && is_nec; then
+    bash -x $HOME/.screenlayout/home-nec-left.sh
+  elif is_plugged; then
+    # unknown monitor, let's set it up
+    arandr
+  else
+    # back to laptop
+    bash -x $HOME/.screenlayout/laptop-lores.sh
+  fi
+done

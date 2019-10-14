@@ -1,16 +1,13 @@
 #!/bin/sh
 ID="usb-CATEX_TECH._KB84M-S_CA2015040001-event-kbd"
-DEV="/dev/input/by-id/${ID}"	
-CMD="ls ${DEV} -asl"
-RES=$(${CMD} 2>&1)
+DEV="/dev/input/by-id/${ID}"
 
-xmodmap ~/.Xmodmap
+renice +19 $$ >/dev/null
 
-while (true) do
-  NEWRES=$(${CMD} 2>&1)
-  if [ "$NEWRES" != "$RES" ]; then
-    xmodmap ~/.Xmodmap
-  fi
-  RES="$NEWRES"
-  sleep 5
+while (true) ; do
+  xmodmap ~/.Xmodmap
+  setxkbmap pl
+  inotifywait -q \
+    -e close -e open -e create -e delete \
+    /dev/input/by-id/ >/dev/null
 done

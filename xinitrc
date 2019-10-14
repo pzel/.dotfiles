@@ -12,10 +12,12 @@ cleanup() {
   killall -9 redshift || true
   killall -9 xbindkeys || true
   killall -9 kbd_watch || true
+  killall -9 display_watch || true
 }
 
 setup() {
 	kbd_watch &
+  display_watch &
 	nm-applet &
 	xfce4-panel --disable-wm-check &
 	#pulseaudio &
@@ -37,4 +39,3 @@ setup() {
 cleanup
 (sleep 1 && setup) &
 exec cwm
-
