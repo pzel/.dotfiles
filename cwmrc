@@ -1,0 +1,28 @@
+borderwidth 4
+snapdist 64
+color activeborder turquoise
+color inactiveborder slategray
+
+#color activeborder lightskyblue
+#color inactiveborder steelblue
+
+unbind-key all
+unbind-mouse all
+
+bind-mouse 4-1 window-move
+bind-mouse 4-2 window-resize
+bind-mouse 4-3 window-resize
+
+bind-key M-Tab    window-cycle
+bind-key MS-Tab   window-rcycle
+bind-key 4-slash      menu-window
+bind-key 4-Up      window-vmaximize
+bind-key 4-Left      window-snap-left
+bind-key 4-Right      window-snap-right
+bind-key 4-b     window-vtile
+bind-key 4-m      window-maximize
+bind-key 4S-r           restart
+bind-key 4-q           window-delete
+bind-key 4S-q           quit
+
+gap 0 0 30 0

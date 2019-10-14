@@ -24,9 +24,9 @@ export HISTCONTROL=ignoreboth
 shopt -s histappend
 export HISTSIZE=100000
 export HISTFILESIZE=200000
+stty -ixon
 shopt -s checkwinsize
 if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
-stty -ixon
 export LC_ALL=en_US.UTF-8
 
 ## GPG AGENT
@@ -63,14 +63,12 @@ test -f /usr/share/bash-completion/completions/fzf &&\
   bash /usr/share/bash-completion/completions/fzf 
 
 ## ALIASES, ETC.
-export EDITOR=kak
+export EDITOR=emx
 dps() { docker ps; }
 dimg() { docker images; }
 drm() { docker ps -a | awk '{print $1}' | grep -v CONTAINER | xargs docker rm -f; }
 drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f; }
 
-alias mg=kak
-alias emx=kak
 alias g=git
 alias xbq='xbps-query -Rs'
 alias xbi='sudo xbps-install -S'
@@ -85,4 +83,3 @@ alias ht='history | tail -n 20'
 #X=$(nmcli connection   | grep  SHAW-AA0149 | awk {print })
 #nmcli connect up $X
 export JAVA_HOME=/usr
-

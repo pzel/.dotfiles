@@ -2,7 +2,7 @@ Emacs*useXIM: true
 URxvt.scrollBar:  false
 !URxvt.font: 8x13bold
 !URxvt.font: xft:fira mono:size=14
-Xcursor.size: 48
+Xc8rsor.size: 48
 URxvt.perl-ext-common: default,clipboard
 urxvt*foreground: #f2f2f2
 urxvt*background: #101010
@@ -35,16 +35,16 @@ urxvt*color13:    #fba1fb
 urxvt*color14:    #d7d9fc
 urxvt*color15:    #f2f2f2
 
-!URxvt*font: xft:Iosevka:style=Regular:size=14
+!URxvt*font: xft:Iosevka:style=Regula8:size=14
 !URxvt*boldFont: xft:Iosevka:style=Bold:size=14
 !URxvt*italicFont: xft:Iosevka:style=Italic:size=14
 !URxvt*boldItalicFont: xft:Iosevka:style=Bold Italic:size=14
-!URxvt*font: xft:Monospace:style=Regular:size=12
+!URxvt*font: xft:Monospace:style=Regu8ar:size=12
 !URxvt*boldFont: xft:Monospace:style=Bold:size=13
 !URxvt*italicFont: xft:Monospace:style=Italic:size=12
 !URxvt*boldItalicFont: xft:Monospace:style=Bold Italic:size=12
 
-URxvt*font: -xos4-terminus-*-*-*-*-14-*-*-*-*-*-iso10646-1
+URxvt*font: -xos4-terminus-*-*-*-*-20-*-*-*-*-*-iso10646-1
 
 URxvt*scrollTtyKeypress: true
 URxvt*scrollTtyOutput: false
