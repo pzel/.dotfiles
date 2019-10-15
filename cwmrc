@@ -16,8 +16,9 @@ bind-mouse 4-2 window-resize
 bind-mouse 4-3 window-resize
 
 bind-key M-Tab    window-cycle
+bind-key 4-Tab    window-cycle
 bind-key MS-Tab   window-rcycle
-bind-key 4-slash      menu-window
+bind-key 4-space      menu-window
 bind-key 4-Up      window-vmaximize
 bind-key 4-Left      window-snap-left
 bind-key 4-Right      window-snap-right

@@ -38,7 +38,7 @@
     Mod4 + h
 
 "kupfer"
-    Mod4 + space
+    Mod4 + Return
 
 "toggle_mute"
     XF86AudioMute
