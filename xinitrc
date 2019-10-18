@@ -38,4 +38,5 @@ setup() {
 
 cleanup
 (sleep 1 && setup) &
-exec cwm
+exec ck-launch-session dbus-launch --sh-syntax --exit-with-x11 cwm
+

@@ -3,6 +3,9 @@ snapdist 64
 color activeborder turquoise
 color inactiveborder slategray
 
+# app specifications
+ignore "xfce4-panel"
+
 #color activeborder lightskyblue
 #color inactiveborder steelblue
 
@@ -26,6 +29,7 @@ bind-key 4-b     window-vtile
 bind-key 4-m      window-maximize
 bind-key 4S-r           restart
 bind-key 4-q           window-delete
+bind-key 4-BackSpace           window-hide
 bind-key 4S-q           quit
 
 gap 0 0 30 0

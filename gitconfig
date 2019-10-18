@@ -17,3 +17,5 @@
 	default = simple
 [gpg]
 	program = gpg2
+[diff]
+	noprefix = true
