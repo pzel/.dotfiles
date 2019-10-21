@@ -63,6 +63,11 @@
 "xcalib -i -a"
     Shift + Mod4 + F12 + Release
 
+# Show mouse culture
+"find-cursor -o"
+    Shift + Mod4 + Escape + Release
+
+
 # A list of keys is in /usr/include/X11/keysym.h and in
 # /usr/include/X11/keysymdef.h
 # The XK_ is not needed.
