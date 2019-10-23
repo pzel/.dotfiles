@@ -17,3 +17,7 @@ else
   amixer set Master toggle # 
   notify-send -t 3000 -i audio-volume-muted "Muted"
 fi
+# Turn on all volumes, because they get silenced :<
+amixer -q set Headphone 80%
+amixer -q set PCM 80%
+amixer -q set Speaker 80%
