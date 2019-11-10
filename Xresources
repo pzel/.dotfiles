@@ -4,8 +4,8 @@ URxvt.scrollBar:  false
 !URxvt.font: xft:fira mono:size=14
 Xc8rsor.size: 48
 URxvt.perl-ext-common: default,clipboard
-urxvt*foreground: #f2f2f2
-urxvt*background: #101010
+urxvt*background: #fdfdfd
+urxvt*foreground: #101010
 
 !!   Normal      Bright
 !!   --------    -------
@@ -44,7 +44,10 @@ urxvt*color15:    #f2f2f2
 !URxvt*italicFont: xft:Monospace:style=Italic:size=12
 !URxvt*boldItalicFont: xft:Monospace:style=Bold Italic:size=12
 
-URxvt*font: -xos4-terminus-*-*-*-*-20-*-*-*-*-*-iso10646-1
+!URxvt*font: -xos4-terminus-*-*-*-*-20-*-*-*-*-*-iso10646-1
+URxvt*font: xft:Go Mono:style=Regular
+URxvt*boldFont: xft:Go Mono:style=Bold
+
 
 URxvt*scrollTtyKeypress: true
 URxvt*scrollTtyOutput: false

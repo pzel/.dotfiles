@@ -28,7 +28,7 @@
 "slock"
     Control + Mod4 + Home
 
-"xcalib -i -a"
+"sudo zzz"
     Control + Mod4 + End
 
 "screenshot"
