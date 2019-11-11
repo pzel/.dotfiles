@@ -4,9 +4,6 @@ URxvt.scrollBar:  false
 !URxvt.font: xft:fira mono:size=14
 Xc8rsor.size: 48
 URxvt.perl-ext-common: default,clipboard
-urxvt*background: #fdfdfd
-urxvt*foreground: #101010
-
 !!   Normal      Bright
 !!   --------    -------
 !!   0 Black      8 Black
@@ -18,41 +15,32 @@ urxvt*foreground: #101010
 !!   6 Cyan      14 Cyan
 !!   7 White     15 White
 
-urxvt*color0:    #101010
-urxvt*color1:    #e9897c
-urxvt*color2:    #b6e77d
-urxvt*color3:    #ecebbe
-urxvt*color4:    #a9cdeb
-urxvt*color5:    #ea96eb
-urxvt*color6:    #c9caec
-urxvt*color7:    #f2f2f2
-urxvt*color8:    #303030
-urxvt*color9:    #f9f2f6
-urxvt*color10:    #c3f786
-urxvt*color11:    #fcfbcc
-urxvt*color12:    #b6defb
-urxvt*color13:    #fba1fb
-urxvt*color14:    #d7d9fc
-urxvt*color15:    #f2f2f2
+URxvt*.foreground:   #464646
+URxvt*.background:   #fefefe
+URxvt*.cursorColor:  #464646
+URxvt*.color0:       #101010
+URxvt*.color8:       #525252
+URxvt*.color1:       #7c7c7c
+URxvt*.color9:       #7c7c7c
+URxvt*.color2:       #8e8e8e
+URxvt*.color10:      #8e8e8e
+URxvt*.color3:       #a0a0a0
+URxvt*.color11:      #a0a0a0
+URxvt*.color4:       #686868
+URxvt*.color12:      #686868
+URxvt*.color5:       #747474
+URxvt*.color13:      #747474
+URxvt*.color6:       #868686
+URxvt*.color14:      #868686
+URxvt*.color7:       #b9b9b9
+URxvt*.color15:      #f7f7f7
 
-!URxvt*font: xft:Iosevka:style=Regula8:size=14
-!URxvt*boldFont: xft:Iosevka:style=Bold:size=14
-!URxvt*italicFont: xft:Iosevka:style=Italic:size=14
-!URxvt*boldItalicFont: xft:Iosevka:style=Bold Italic:size=14
-!URxvt*font: xft:Monospace:style=Regu8ar:size=12
-!URxvt*boldFont: xft:Monospace:style=Bold:size=13
-!URxvt*italicFont: xft:Monospace:style=Italic:size=12
-!URxvt*boldItalicFont: xft:Monospace:style=Bold Italic:size=12
-
-!URxvt*font: -xos4-terminus-*-*-*-*-20-*-*-*-*-*-iso10646-1
 URxvt*font: xft:Go Mono:style=Regular
 URxvt*boldFont: xft:Go Mono:style=Bold
-
-
 URxvt*scrollTtyKeypress: true
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: false
-
+URxvt*iso14755_52: false
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.keysym.Control-Insert: eval:selection_to_clipboard
@@ -62,5 +50,5 @@ xterm.boldFont: 8x13bold
 xterm*scrollTtyOutput: false
 xterm*scrollWithBuffer: false
 xterm*reverseVideo: off
-URxvt.iso14755_52: false
+
 !Xft.dpi: 96

@@ -7,6 +7,12 @@ color inactiveborder slategray
 # app specifications
 ignore "xfce4-panel"
 
+# 4-Enter 
+command firefox firefox
+command thunderbird thunderbird
+command anki anki
+command evince evince
+
 #color activeborder lightskyblue
 #color inactiveborder steelblue
 

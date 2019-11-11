@@ -1,0 +1,14 @@
+#!/bin/env ruby
+require 'uri'
+(ARGV.length == 2) ? (puts "OK") : (raise "Usage: yt SSH_HOST URL")
+host, url = ARGV[0], URI.parse(ARGV[1])
+ary = URI.decode_www_form(url.query)
+params = Hash[ary]
+object_id = params["v"]
+del = "\033[1G"
+printf "#{del}Getting #{object_id} ... "
+get_via_ssh = `ssh #{host} '$HOME/.local/bin/youtube-dl -o "%(id)s_%(title)s.%(ext)s" #{url}'`
+printf "#{del}Downloading file from #{host} ... "
+scp_from_ssh = `scp #{host}:#{object_id}* .`
+printf "#{del}Deleting remote file\n"
+delete_via_ssh = `ssh #{host} 'rm -f ./#{object_id}*'`

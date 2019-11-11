@@ -31,7 +31,7 @@ setup() {
 	amixer -q set Headphone 80%
 	amixer -q set PCM 80%
 	amixer -q set Speaker 80%
-	xsetroot -def -solid olivedrab
+	xsetroot -def -solid dimgray
 }
 
 cleanup
