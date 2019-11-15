@@ -6,6 +6,7 @@ color inactiveborder slategray
 
 # app specifications
 ignore "xfce4-panel"
+ignore "Global time"
 
 # 4-Enter 
 command firefox firefox

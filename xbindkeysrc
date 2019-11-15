@@ -43,6 +43,9 @@
 "toggle_mute"
     XF86AudioMute
 
+"mute_zoom"
+    Mod4 + Control + m + Release
+
 "amixer -q set Master 10%-"
     XF86AudioLowerVolume
 
