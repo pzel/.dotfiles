@@ -15,13 +15,17 @@ pull() {
 
 rewrite() {
     /bin/cat /etc/hosts.local $REMOTE_FILE > /etc/hosts &&\
-    for H in $UNLOCK_HOSTS; do sed -i "/0.0.0.0 ${H}/d" /etc/hosts; done
     echo "# Updated on $(/bin/hostname) at: $(/bin/date)" >> /etc/hosts
+}
+unlock () {
+    for H in $UNLOCK_HOSTS; do sed -i "/0.0.0.0 ${H}/d" /etc/hosts; done
 }
 
 case $1 in
   rewrite)
     rewrite ;;
+  unlock)
+    pull && rewrite && unlock ;;
   *)
-    pull && rewrite;;
+    pull && rewrite ;;
 esac
