@@ -1,5 +1,6 @@
 #!/bin/sh
 CURRENT=$(xdotool getwindowfocus)
+# ZOOM_AS=$(xdotool search --limit 1 --name "as_toolbar") #screenshare
 ZOOM=$(xdotool search --limit 1 --name "Zoom Meeting ID:")
 xdotool windowactivate --sync ${ZOOM}
 xdotool key --clearmodifiers "alt+a"

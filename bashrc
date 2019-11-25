@@ -35,7 +35,8 @@ export GPG_AGENT_INFO=""
 
 ## PATHS
 export GOPATH=$HOME/src/go
-export PATH=$HOME/bin:$GOPATH/bin:$HOME/.rbenv/bin:$HOME/.pulumi/bin:$PATH
+export ANDROIDPATH=/usr/local/android-sdk/tools/	
+export PATH=$HOME/bin:$GOPATH/bin:$HOME/.rbenv/bin:$HOME/.pulumi/bin:$ANDROIDPATH:$PATH
 
 ## ALIA
 . "$HOME"/.alia

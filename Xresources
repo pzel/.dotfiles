@@ -15,7 +15,7 @@ URxvt.perl-ext-common: default,clipboard
 !!   6 Cyan      14 Cyan
 !!   7 White     15 White
 
-URxvt*.foreground:   #464646
+URxvt*.foreground:   #000000
 URxvt*.background:   #fefefe
 URxvt*.cursorColor:  #464646
 URxvt*.color0:       #101010

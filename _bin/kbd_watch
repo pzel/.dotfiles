@@ -6,8 +6,7 @@ DEV="/dev/input/by-id/${ID}"
 renice +19 $$ >/dev/null
 
 while (true) ; do
+  sleep 2
   xmodmap ~/.Xmodmap
-  inotifywait -q \
-    -e close -e open -e create -e delete \
-    /dev/input/by-id/ >/dev/null
+  inotifywait -q -e close -e open -e create -e delete ${DEV} #>/dev/null
 done
