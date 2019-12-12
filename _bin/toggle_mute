@@ -1,23 +1,18 @@
 #!/bin/sh
-MASTER_IS_OFF=$(amixer get Master | grep '\[off\]')
-HEADPHONE_IS_OFF=$(amixer get Headphone | grep '\[off\]')
-SPEAKER_IS_OFF=$(amixer get Speaker | grep '\[off\]')
+set -x
 
-if [ -n "$MASTER_IS_OFF" ] && [ -n "$HEADPHONE_IS_OFF" ]
-then
-  amixer set Master toggle
-  amixer set Headphone toggle
-  notify-send -t 3000 -i audio-volume-medium "Unmuted"
-elif [ -n "$MASTER_IS_OFF" ] && [ -n "$SPEAKER_IS_OFF" ]
-then
-  amixer set Master toggle
-  amixer set Speaker toggle
+amixer set Master toggle
+if (amixer get Master | grep Mono | grep '\[on\]'); then
+  amixer set Headphone unmute
+  amixer set Speaker unmute
   notify-send -t 3000 -i audio-volume-medium "Unmuted"
 else
-  amixer set Master toggle # 
+  amixer set Headphone mute
+  amixer set Speaker mute
   notify-send -t 3000 -i audio-volume-muted "Muted"
 fi
+
 # Turn on all volumes, because they get silenced :<
 amixer -q set Headphone 80%
-amixer -q set PCM 80%
-amixer -q set Speaker 80%
+amixer -q set PCM 90%
+amixer -q set Speaker 90%

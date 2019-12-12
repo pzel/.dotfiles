@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+#set -x
 set -e
 set -o pipefail
 
@@ -17,15 +17,27 @@ rewrite() {
     /bin/cat /etc/hosts.local $REMOTE_FILE > /etc/hosts &&\
     echo "# Updated on $(/bin/hostname) at: $(/bin/date)" >> /etc/hosts
 }
-unlock () {
+
+unlock() {
     for H in $UNLOCK_HOSTS; do sed -i "/0.0.0.0 ${H}/d" /etc/hosts; done
+}
+
+remind() {
+    for x in $(seq 1 30); do printf "#"; done	
+    for x in $(seq 1 5); do echo ""; done
+    echo "      IS THIS NECESSSARY?"
+    for x in $(seq 1 5); do echo ""; done
+    for x in $(seq 1 30); do printf "#"; done
+    echo ""
 }
 
 case $1 in
   rewrite)
     rewrite ;;
   unlock)
+    remind
     pull && rewrite && unlock ;;
   *)
     pull && rewrite ;;
 esac
+

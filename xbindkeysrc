@@ -13,9 +13,6 @@
 "xvkbd -text '\[Next]'"
     b:8
 
-"xvkbd -text '\M\t'
-    Mod5 + Tab
-
 "zeal"
     Mod4 + F1
 
@@ -25,6 +22,9 @@
 "xfterm urxvt"
     Mod4 + F6
 
+"thunar"
+    Mod4 + h
+
 "slock"
     Control + Mod4 + Home
 
@@ -33,9 +33,6 @@
 
 "screenshot"
     Shift + Mod4 + 4 + Release
-
-"thunar"
-    Mod4 + h
 
 "kupfer"
     Mod4 + Return
@@ -66,7 +63,7 @@
 "xcalib -i -a"
     Shift + Mod4 + F12 + Release
 
-# Show mouse culture
+# Show mouse cursor
 "find-cursor -o"
     Shift + Mod4 + Escape + Release
 

@@ -79,6 +79,7 @@ alias ghcit='ghci -XAllowAmbiguousTypes -XDataKinds -XGADTs -XKindSignatures -XM
 alias x='exec ssh-agent startx'
 alias tmx='(pgrep tmux >/dev/null 2>&1) && tmux a || tmux'
 alias h=history
+alias o=open
 alias ht='history | tail -n 20'
 
 #X=$(nmcli connection   | grep  SHAW-AA0149 | awk {print })

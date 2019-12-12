@@ -29,12 +29,13 @@ setup() {
 	xss-lock -- slock &
 	kupfer --no-splash >/dev/null 2>&1 &
 	globaltime &		
-	amixer -q set Headphone 80%
-	amixer -q set PCM 80%
-	amixer -q set Speaker 80%
-	xsetroot -def -solid dimgray
+	amixer -q set Headphone 60%
+	amixer -q set PCM 100%
+	amixer -q set Speaker 100%
+	# xfsettingsd &
+	(sleep 5 && sh ~/.fehbg)
 }
 
 cleanup
 (sleep 1 && setup) &
-exec ck-launch-session dbus-launch --sh-syntax --exit-with-x11 cwm
+exec dbus-launch --sh-syntax --exit-with-x11 xfwm4

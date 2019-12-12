@@ -29,3 +29,4 @@ while (true) ; do
     bash -x $HOME/.screenlayout/laptop-lores.sh
   fi
 done
+sh ~/.fehbg
