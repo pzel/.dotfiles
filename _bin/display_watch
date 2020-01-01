@@ -21,12 +21,15 @@ while (true) ; do
   inotifywait -e attrib ${DEV}
   if is_plugged && is_nec; then
     bash -x $HOME/.screenlayout/home-nec-left.sh
+    sh ~/.fehbg
 #  elif is_plugged; then
 #    # unknown monitor, let's set it up
 #    arandr
   else
     # back to laptop
     bash -x $HOME/.screenlayout/laptop-lores.sh
+    sh ~/.fehbg
   fi
 done
-sh ~/.fehbg
+
+

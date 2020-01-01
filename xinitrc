@@ -25,7 +25,7 @@ setup() {
 	xmodmap ~/.Xmodmap
 	xrdb -merge ~/.Xresources
 	ibus-daemon --xim -dr &
-	xset s 600 &
+	xset s 300
 	xss-lock -- slock &
 	kupfer --no-splash >/dev/null 2>&1 &
 	globaltime &		
@@ -33,9 +33,9 @@ setup() {
 	amixer -q set PCM 100%
 	amixer -q set Speaker 100%
 	# xfsettingsd &
-	(sleep 5 && sh ~/.fehbg)
+	(sleep 5 && sh ~/.fehbg) &
 }
 
 cleanup
-(sleep 1 && setup) &
+(sleep 3 && setup) &
 exec dbus-launch --sh-syntax --exit-with-x11 xfwm4

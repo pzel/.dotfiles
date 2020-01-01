@@ -22,6 +22,9 @@
 "xfterm urxvt"
     Mod4 + F6
 
+"bash /home/p/.screenlayout/laptop-lores.sh"
+    Mod4 + F7
+
 "thunar"
     Mod4 + h
 
