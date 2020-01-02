@@ -4,8 +4,8 @@ BATTERY='/sys/bus/acpi/drivers/battery/PNP0C0A:00/power_supply/BAT0'
 main() {
     capacity=$(cat $BATTERY/capacity)
     status=$(cat $BATTERY/status)
-    icon=$(block ${capacity})
-    #icon=$(number ${capacity})
+    #icon=$(block ${capacity})
+    icon=$(number ${capacity})
     echo ${capacity} >&2
     case ${status} in
         "Discharging") echo -n "${icon}🠛" ;;
@@ -15,7 +15,8 @@ main() {
 }
 
 number() {
-  echo -n "$(($1/10))"
+  #echo -n "$(($1/10))"
+  echo -n "$1"
 }
 
 block() {
