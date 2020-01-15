@@ -23,21 +23,11 @@ unlock() {
     for H in $UNLOCK_HOSTS; do sed -i "/0.0.0.0 ${H}/d" /etc/hosts; done
 }
 
-remind() {
-    for x in $(seq 1 30); do printf "#"; done	
-    for x in $(seq 1 5); do echo ""; done
-    echo "      IS THIS NECESSSARY?"
-    for x in $(seq 1 5); do echo ""; done
-    for x in $(seq 1 30); do printf "#"; done
-    echo ""
-}
-
 case $1 in
   rewrite)
     rewrite ;;
   unlock)
-    pull && rewrite && unlock 
-    remind ;;
+    pull && rewrite && unlock  ;;
   *)
     pull && rewrite ;;
 esac

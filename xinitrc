@@ -33,6 +33,8 @@ setup() {
 	amixer -q set PCM 100%
 	amixer -q set Speaker 100%
 	# xfsettingsd &
+	gsettings set org.gnome.desktop.a11y.keyboard bouncekeys-enable true
+	gsettings set org.gnome.desktop.a11y.keyboard bouncekeys-delay 50
 	(sleep 5 && sh ~/.fehbg) &
 }
 

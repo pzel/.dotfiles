@@ -28,6 +28,7 @@ stty -ixon
 shopt -s checkwinsize
 if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
 export LC_ALL=en_US.UTF-8
+export LYNX_LSS="$HOME/.lynx.lss"
 
 ## GPG AGENT
 GPG_TTY=$(tty) export GPG_TTY

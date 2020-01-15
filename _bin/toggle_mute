@@ -14,5 +14,5 @@ fi
 
 # Turn on all volumes, because they get silenced :<
 amixer -q set Headphone 80%
-amixer -q set PCM 90%
-amixer -q set Speaker 90%
+amixer -q set PCM 100%
+amixer -q set Speaker 100%
