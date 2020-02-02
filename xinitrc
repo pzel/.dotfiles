@@ -14,7 +14,6 @@ cleanup() {
 
 setup() {
 	kbd_watch &
-	display_watch &
 	nm-applet &
 	xfce4-panel --disable-wm-check &
 	#pulseaudio &
@@ -41,3 +40,4 @@ setup() {
 cleanup
 (sleep 3 && setup) &
 exec dbus-launch --sh-syntax --exit-with-x11 xfwm4
+

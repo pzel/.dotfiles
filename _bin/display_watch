@@ -1,19 +1,21 @@
 #!/bin/bash
 # Watch for changes on DP-1 (displayport)
 # and configure known monitors.
-
+set -x
 CARD=/sys/class/drm/card0-DP-1
 DEV=/dev/dri/card0
 
 is_plugged() {
-  test "$(cat ${CARD}/status)" = "connected"
-  return
+  test "$(cat ${CARD}/status)" = "connected" && true
 }
 
 is_nec() {
   sleep 1 # try to wait out 'partial read' errors
-  (cat ${CARD}/edid | parse-edid | grep 'EA244WMi')
-  return
+  cat ${CARD}/edid | parse-edid | grep 'EA244WMi' && true
+}
+is_lg() {
+  sleep 1
+  cat /sys/class/drm/card0-DP-1/modes | head -n1 | grep '1024x768' && true
 }
 
 renice +19 $$ >/dev/null
@@ -22,9 +24,8 @@ while (true) ; do
   if is_plugged && is_nec; then
     bash -x $HOME/.screenlayout/home-nec-left.sh
     sh ~/.fehbg
-#  elif is_plugged; then
-#    # unknown monitor, let's set it up
-#    arandr
+ elif is_plugged && is_lg; then
+    bash -x $HOME/.screenlayout/home-lg-left.sh
   else
     # back to laptop
     bash -x $HOME/.screenlayout/laptop-lores.sh
