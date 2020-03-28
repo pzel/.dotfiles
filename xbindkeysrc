@@ -1,17 +1,23 @@
 # For the benefit of emacs users: -*- shell-script -*-
 
-#"xvkbd -text '\C\[Insert]'"
-#    b:9
 
-#"xvkbd -text '\S\[Insert]'"
-#    b:8
+"sleep 0.1; xdotool key 'ctrl+minus'"
+    Mod4 + minus + Release
 
-# mouse-based pgup/dn
-"xvkbd -text '\[Prior]'"
-    b:9
+"sleep 0.1; xdotool key 'ctrl+plus'"
+    Mod4 + plus + Release
 
-"xvkbd -text '\[Next]'"
-    b:8
+"sleep 0.1; xdotool key 'ctrl+r'"
+    Mod4 + r + Release
+
+"sleep 0.1; xdotool key 'ctrl+t'"
+    Mod4 + t + Release
+
+"sleep 0.1 ; xdotool key 'ctrl+KP_Insert'"
+    Mod4 + c + Release
+
+"sleep 0.1; xdotool key 'shift+KP_Insert'"
+    Mod4 + v + Release
 
 "zeal"
     Mod4 + F1
@@ -69,7 +75,6 @@
 # Show mouse cursor
 "find-cursor -o"
     Shift + Mod4 + Escape + Release
-
 
 # A list of keys is in /usr/include/X11/keysym.h and in
 # /usr/include/X11/keysymdef.h

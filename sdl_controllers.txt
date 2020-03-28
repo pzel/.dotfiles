@@ -1,0 +1,3 @@
+// add SDL2 game controller mappings to this file
+// Manta Dual Shock do PC Model No. PC-021
+03000000ba2200000100000000010000,Technology Innovation International Co. Ltd. USB GAME CONTROLLER,platform:Linux,a:b0,b:b1,x:b2,y:b3,back:b9,guide:b8,start:b10,leftshoulder:b4,rightshoulder:b5,leftx:a0,lefty:a1,lefttrigger:b6,righttrigger:b7,

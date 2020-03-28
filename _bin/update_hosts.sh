@@ -29,6 +29,6 @@ case $1 in
   unlock)
     pull && rewrite && unlock  ;;
   *)
-    pull && rewrite ;;
+    pull && rewrite && unlock;;
 esac
 
