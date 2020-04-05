@@ -14,12 +14,12 @@ cleanup() {
 
 setup() {
 	nm-applet &
-  kbd_watch &
+	kbd_watch &
 	xfce4-panel --disable-wm-check &
 	#pulseaudio &
 	redshift-gtk -t 5000:3000 -l 51:19 &
 	udiskie --tray &
-	setxkbmap pl
+	setxkbmap us -option compose:ralt
 	xbindkeys &
 	xmodmap ~/.Xmodmap
 	xrdb -merge ~/.Xresources
