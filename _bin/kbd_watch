@@ -1,12 +1,39 @@
-#!/bin/sh
-set -x
-ID="usb-CATEX_TECH._KB84M-S_CA2015040001-event-kbd"
-DEV="/dev/input/by-id/${ID}"
+#!/usr/bin/env python3
+import pyudev
+import subprocess
 
-renice +19 $$ >/dev/null
+# it's ID_MODEL
+configured = {
+    "2.4G_Mouse": [
+        ["say", "mouse configured"]
+    ],
+    "Pro_Gaming_Keyboard": [
+        ["xmodmap", "/home/p/.Xmodmap"],
+        ["g810-led", "-dv", "046d", "-dp", "c339",
+         "-ds", "1463386A3531", "-a", "401509"],
+        ["g810-led", "-dv", "046d", "-dp", "c339",
+         "-ds", "1463386A3531", "-g", "logo", "220000"],
+        ["g810-led", "-c"],
+        ["say", "keyboard configured"]
+    ]
+}
 
-while (true) ; do
-  sleep 2
-  xmodmap ~/.Xmodmap
-  inotifywait -q -e close -e open -e create -e delete ${DEV} #>/dev/null
-done
+def maybe_run_script(d):
+    action = d.properties.get("ACTION")
+    id_model = d.properties.get("ID_MODEL")
+    scripts = configured.get(id_model)
+    if action=="bind" and id_model and scripts:
+        for script in scripts:
+            subprocess.run(script)
+
+def main():
+    monitor = pyudev.Monitor.from_netlink(pyudev.Context())
+    monitor.filter_by(subsystem='usb')
+    monitor.start()
+
+    for d in iter(monitor.poll, None):
+        maybe_run_script(d)
+
+if __name__ == '__main__':
+    main()
+

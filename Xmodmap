@@ -4,7 +4,7 @@ keycode 166 = Prior
 keycode 167 = Next
 
 ! Make Delete a second Insert
-keycode 119 = Insert  
+keycode 119 = Insert
 keycode 118 = Delete
 
 ! PrintScrn is caps lock
@@ -15,3 +15,13 @@ keycode 107 = Caps_Lock
 !add Control = Control_L
 !keysym 0xff61 = Super_L
 !keycode 107 = Super_L
+
+! Menu key is additional Super
+keycode 135 = Super_R
+
+!KeyPress event, serial 37, synthetic NO, window 0x6600001,
+!    root 0x3d4, subw 0x0, time 32101833, (-102,-11), root:(434,267),
+!    state 0x0, keycode 135 (keysym 0xff67, Menu), same_screen YES,
+!    XLookupString gives 0 bytes:
+!    XmbLookupString gives 0 bytes:
+!    XFilterEvent returns: False

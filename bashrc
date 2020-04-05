@@ -12,7 +12,12 @@ if [ -n "$INSIDE_ACME" ] ; then
   unset COLORTERM
 elif [ -n "$INSIDE_EMACS" ] ; then
   unset COLORTERM
-  PS1="\$(basename \$(pwd))$ " export PS1;
+  PS1="\
+\$(TZ=America/Los_Angeles date +%H:%M) \
+\$(TZ=America/New_York date +%H) \
+\$(TZ=America/Buenos_Aires date +%H) \
+\$(TZ=Europe/Warsaw date +%H:%M) \
+\$(basename \$(pwd))$ " export PS1;
 else
   PS1="\$(basename \$(pwd))$ " export PS1;
 fi;
