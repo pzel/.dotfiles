@@ -1,78 +1,69 @@
 # For the benefit of emacs users: -*- shell-script -*-
 
+# Basic mac compatibility
 
 "sleep 0.1; xdotool key 'ctrl+minus'"
-    Mod4 + minus + Release
-
+    Mod4 + minus + release
 "sleep 0.1; xdotool key 'ctrl+plus'"
-    Mod4 + plus + Release
-
+    Mod4 + plus + release
+"sleep 0.1; xdotool key 'ctrl+0'"
+    Mod4 + 0 + release
 "sleep 0.1; xdotool key 'ctrl+r'"
-    Mod4 + r + Release
-
+    Mod4 + r + release
 "sleep 0.1; xdotool key 'ctrl+t'"
-    Mod4 + t + Release
-
-"sleep 0.1 ; xdotool key 'ctrl+KP_Insert'"
+    Mod4 + t + release
+"sleep 0.1; xdotool key 'ctrl+w'"
+    Mod4 + w + release
+"sleep 0.1 ; xdotool key 'ctrl+c'"
     Mod4 + c + Release
-
-"sleep 0.1; xdotool key 'shift+KP_Insert'"
+"sleep 0.1; xdotool key 'ctrl+c'"
     Mod4 + v + Release
+
+
+# Launchers
 
 "zeal"
     Mod4 + F1
-
 "xfterm"
     Mod4 + F5
-
 "xfterm urxvt"
     Mod4 + F6
-
-"bash /home/p/.screenlayout/laptop-lores.sh"
-    Mod4 + F7
-
 "thunar"
     Mod4 + h
-
-"slock"
-    Control + Mod4 + Home
-
-"sudo zzz"
-    Control + Mod4 + End
-
 "screenshot"
     Shift + Mod4 + 4 + Release
-
 "kupfer"
     Mod4 + Return
-
-"toggle_mute"
-    XF86AudioMute
-
 "mute_zoom"
     Mod4 + Control + m + Release
 
+
+# Hardware control
+
+"bash /home/p/.screenlayout/laptop-lores.sh"
+    Mod4 + F7
+"slock"
+    Control + Mod4 + Home
+"sudo zzz"
+    Control + Mod4 + End
 "amixer -q set Master 10%-"
     XF86AudioLowerVolume
-
 "amixer -q set Master on ; amixer -q set Master 10%+"
     XF86AudioRaiseVolume
-
+"toggle_mute"
+    XF86AudioMute
 "light -U 5"
     XF86MonBrightnessDown
 "light -U 5"
     Mod4 + F11 + Release
-
 "light -A 5"
     XF86MonBrightnessUp
 "light -A 5"
     Mod4 + F12
-
-# Invert screen colors
+"light -S 3"
+    Mod4 + F8
 "xcalib -i -a"
     Shift + Mod4 + F12 + Release
-
-# Show mouse cursor
 "find-cursor -o"
     Shift + Mod4 + Escape + Release
 

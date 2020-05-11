@@ -1,9 +1,9 @@
 #!/bin/sh
-#export GTK_IM_MODULE=ibus
-export GTK_IM_MODULE=xim
-export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=xim
 export QT_IM_MODULE=ibus
 export QT4_IM_MODULE=ibus
+
 #export GTK_IM_MODULE_FILE=/etc/gtk-2.0/gtk.immodules
 #export GTK_IM_MODULE_FILE=/usr/lib/gtk-3.0/3.0.0/immodules.cache
 
@@ -19,7 +19,6 @@ setup() {
 	#pulseaudio &
 	redshift-gtk -t 5000:3000 -l 51:19 &
 	udiskie --tray &
-	setxkbmap us -option compose:ralt
 	xbindkeys &
 	xmodmap ~/.Xmodmap
 	xrdb -merge ~/.Xresources
@@ -34,12 +33,14 @@ setup() {
 	# xfsettingsd &
 	gsettings set org.gnome.desktop.a11y.keyboard bouncekeys-enable true
 	gsettings set org.gnome.desktop.a11y.keyboard bouncekeys-delay 50
-  ~/.screenlayout/laptop-lores.sh
+        ~/.screenlayout/laptop-lores.sh
+  xkbset exp -bell -sticky -twokey -latchlock -feedback -stickybeep -led 99999
+  xkbset sticky -twokey -latchlock feedback led stickybeep
 	# Two alt-tabs, for switching with Left Super & Right Ctrl
 	alttab -mk Control_R -kk Tab -s 0 -bg white -fg black >/dev/null 2>&1 &
 	alttab -mk Super_L -kk Tab -s 0 -bg white -fg black >/dev/null 2>&1 &
 }
 
 cleanup
-(sleep 3 && setup) &
+(sleep 2 && setup) &
 exec dbus-launch --sh-syntax --exit-with-x11 xfwm4

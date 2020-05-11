@@ -2,7 +2,6 @@
 set -x
 exec 2>&1 >> /tmp/onresume
 nm-online
-#light -S 5
-setxkbmap pl &
+light -S 2
 xmodmap ~/.Xmodmap
 echo "resumed at $(date)"

@@ -1,6 +1,3 @@
-# %L is /usr/share/X11/locale/en_US.UTF-8/Compose
-include "%L"
-# PL, just the keys
 <Multi_key> <e> : "ę"
 <Multi_key> <E> : "Ę"
 <Multi_key> <o> : "ó"
@@ -21,14 +18,11 @@ include "%L"
 <Multi_key> <n> : "ń"
 <Multi_key> <N> : "Ń"
 
-# PL, top row
 <Multi_key> <grave> <e> : "ę"
 <Multi_key> <grave> <E> : "Ę"
 <Multi_key> <grave> <o> : "ó"
 <Multi_key> <grave> <O> : "Ó"
 
-
-# PL, middle row
 <Multi_key> <grave> <a> : "ą"
 <Multi_key> <grave> <A> : "Ą"
 <Multi_key> <grave> <s> : "ś"
@@ -37,7 +31,6 @@ include "%L"
 <Multi_key> <grave> <l> : "ł"
 <Multi_key> <grave> <L> : "Ł"
 
-# PL, bottom row
 <Multi_key> <grave> <z> : "ż"
 <Multi_key> <grave> <Z> : "Ż"
 <Multi_key> <grave> <x> : "ź"
