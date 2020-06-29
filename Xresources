@@ -35,8 +35,8 @@ URxvt*.color14:      #868686
 URxvt*.color7:       #b9b9b9
 URxvt*.color15:      #f7f7f7
 
-URxvt*font: xft:Go Mono:style=Regular
-URxvt*boldFont: xft:Go Mono:style=Bold
+URxvt*font: xft:Atarist:style=Regular
+URxvt*boldFont: xft:Atarist:style=Bold
 URxvt*scrollTtyKeypress: true
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: false

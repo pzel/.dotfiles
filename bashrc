@@ -17,7 +17,7 @@ elif [ -n "$INSIDE_EMACS" ] ; then
 \$(TZ=America/New_York date +%H) \
 \$(TZ=America/Buenos_Aires date +%H) \
 \$(TZ=Europe/Warsaw date +%H:%M) \
-\$(basename \$(pwd))$ " export PS1;
+\$(basename \"\$(pwd)\")$ " export PS1;
 else
   PS1="\$(basename \$(pwd))$ " export PS1;
 fi;
