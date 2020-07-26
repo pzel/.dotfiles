@@ -34,13 +34,16 @@ setup() {
 	gsettings set org.gnome.desktop.a11y.keyboard bouncekeys-enable true
 	gsettings set org.gnome.desktop.a11y.keyboard bouncekeys-delay 50
         ~/.screenlayout/laptop-lores.sh
-  xkbset exp -bell -sticky -twokey -latchlock -feedback -stickybeep -led 99999
-  xkbset sticky -twokey -latchlock feedback led stickybeep
+        xkbset exp -bell -sticky -twokey -latchlock -feedback -stickybeep -led 99999
+        xkbset sticky -twokey -latchlock feedback led stickybeep
+        xinput --list | grep ELAN | sed -e 's/.*id=\(.\+\)\t.*/\1/' | xargs xinput disable
 	# Two alt-tabs, for switching with Left Super & Right Ctrl
 	alttab -mk Control_R -kk Tab -s 0 -bg white -fg black >/dev/null 2>&1 &
 	alttab -mk Super_L -kk Tab -s 0 -bg white -fg black >/dev/null 2>&1 &
+	feh --bg-fill $HOME/tile.png  &
 }
 
 cleanup
 (sleep 2 && setup) &
 exec dbus-launch --sh-syntax --exit-with-x11 xfwm4
+

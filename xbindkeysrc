@@ -42,6 +42,8 @@
 
 "bash /home/p/.screenlayout/laptop-lores.sh"
     Mod4 + F7
+"monitors"
+    Shift + Mod4 + F7
 "slock"
     Control + Mod4 + Home
 "sudo zzz"

@@ -1,0 +1,6 @@
+#!/bin/sh
+choice=$(ls $HOME/.screenlayout/| dmenu -i -l 10 -fn 'Fira Mono:pixelsize=32')
+
+if [ -n "$choice" ]; then
+  $HOME/.screenlayout/$choice;
+fi

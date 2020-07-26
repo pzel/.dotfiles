@@ -1,7 +1,12 @@
 #!/bin/bash
 set -x
-# /bin/slock
-# sleep 2
+exec 2>&1 >> /tmp/onsuspend
+
+if pgrep -f xss-lock
+  then xset s activate
+  else slock &
+fi
+
 echo "suspended at $(date)"
 
 

@@ -1,11 +1,12 @@
 #!/bin/sh
 set -x
 if [ -z "$1" ]; then
-#  T=xfce4-terminal
-   T=gnome-terminal	
+  T=xfce4-terminal
+#  T=gnome-terminal	
 else
   T=$1
 fi	
+
 
 pid=$(pgrep -fl "$T" | grep -v xfterm | grep -v grep | grep -v sh)
 if [ -z "$pid" ]; then
