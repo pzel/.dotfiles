@@ -1,0 +1,4 @@
+#!/bin/sh
+for n in 0 1 2 3 
+  do echo '1500000' |sudo tee /sys/devices/system/cpu/cpufreq/policy$n/scaling_max_freq
+done
