@@ -40,9 +40,7 @@ GPG_TTY=$(tty) export GPG_TTY
 export GPG_AGENT_INFO=""
 
 ## PATHS
-export GOPATH=$HOME/src/go
-export ANDROIDPATH=/usr/local/android-sdk/tools/	
-export PATH=$HOME/bin:$GOPATH/bin:$HOME/.rbenv/bin:$HOME/.pulumi/bin:$ANDROIDPATH:$PATH
+export PATH=$HOME/.cargo/bin:$HOME/bin:$HOME/.rbenv/bin:$PATH
 
 ## ALIA
 . "$HOME"/.alia

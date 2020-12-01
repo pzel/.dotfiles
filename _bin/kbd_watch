@@ -5,7 +5,7 @@ import subprocess
 # it's ID_MODEL
 configured = {
     "2.4G_Mouse": [
-        ["say", "mouse configured"]
+        # ["say", "mouse configured"]
     ],
     "Pro_Gaming_Keyboard": [
         ["xmodmap", "/home/p/.Xmodmap"],
@@ -14,7 +14,7 @@ configured = {
         ["g810-led", "-dv", "046d", "-dp", "c339",
          "-ds", "1463386A3531", "-g", "logo", "220000"],
         ["g810-led", "-c"],
-        ["say", "keyboard configured"]
+        # ["say", "keyboard configured"]
     ]
 }
 

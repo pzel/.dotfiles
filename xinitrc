@@ -3,9 +3,11 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 export QT4_IM_MODULE=ibus
-
 #export GTK_IM_MODULE_FILE=/etc/gtk-2.0/gtk.immodules
 #export GTK_IM_MODULE_FILE=/usr/lib/gtk-3.0/3.0.0/immodules.cache
+
+exec > $HOME/.xlog
+exec 2&>1
 
 cleanup() {
   TOKILL=redshift-gtk redshift xbindkeys kbd_watch display_watch udiskie alttab
@@ -13,7 +15,8 @@ cleanup() {
 }
 
 setup() {
-	nm-applet &
+	bgc "#324542"
+	connman-ui-gtk &
 	kbd_watch &
 	xfce4-panel --disable-wm-check &
 	#pulseaudio &
@@ -31,19 +34,18 @@ setup() {
 	amixer -q set PCM 100%
 	amixer -q set Speaker 100%
 	# xfsettingsd &
-	gsettings set org.gnome.desktop.a11y.keyboard bouncekeys-enable true
-	gsettings set org.gnome.desktop.a11y.keyboard bouncekeys-delay 50
+	# gsettings set org.gnome.desktop.a11y.keyboard bouncekeys-enable true
+	# gsettings set org.gnome.desktop.a11y.keyboard bouncekeys-delay 50
         ~/.screenlayout/laptop-lores.sh
-        xkbset exp -bell -sticky -twokey -latchlock -feedback -stickybeep -led 99999
-        xkbset sticky -twokey -latchlock feedback led stickybeep
+        #xkbset exp -bell -sticky -twokey -latchlock -feedback -stickybeep -led 99999
+        #xkbset sticky -twokey -latchlock feedback led stickybeep
+	# disable dell touchscreen
         xinput --list | grep ELAN | sed -e 's/.*id=\(.\+\)\t.*/\1/' | xargs xinput disable
-	# Two alt-tabs, for switching with Left Super & Right Ctrl
-	alttab -mk Control_R -kk Tab -s 0 -bg white -fg black >/dev/null 2>&1 &
 	alttab -mk Super_L -kk Tab -s 0 -bg white -fg black >/dev/null 2>&1 &
-	feh --bg-fill $HOME/tile.png  &
 }
 
 cleanup
 (sleep 2 && setup) &
 exec dbus-launch --sh-syntax --exit-with-x11 xfwm4
+
 
