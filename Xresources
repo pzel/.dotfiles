@@ -54,3 +54,6 @@ xterm*scrollWithBuffer: false
 xterm*reverseVideo: off
 
 Xft.dpi: 114
+
+xscreensaver.font: xft:go mono:size=11:style=Regular
+

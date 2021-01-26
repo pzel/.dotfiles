@@ -40,7 +40,7 @@ GPG_TTY=$(tty) export GPG_TTY
 export GPG_AGENT_INFO=""
 
 ## PATHS
-export PATH=$HOME/.cargo/bin:$HOME/bin:$HOME/.rbenv/bin:$PATH
+export PATH=$PATH:$HOME/.cargo/bin:$HOME/bin:$HOME/.rbenv/bin
 
 ## ALIA
 . "$HOME"/.alia

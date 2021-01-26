@@ -15,23 +15,78 @@ configured = {
          "-ds", "1463386A3531", "-g", "logo", "220000"],
         ["g810-led", "-c"],
         # ["say", "keyboard configured"]
-    ]
+    ],
+    "slow": [["sudo", "/bin/slow"]],
+    "fast": [["sudo", "/bin/fast"]],
+    "nec-in": [["sh", "-c", "/home/p/.screenlayout/home-nec-left.sh"]],
+    "nec-out": [["sh", "-c", "/home/p/.screenlayout/laptop-lores.sh"]]
 }
+
+def dp1_plugged_in(dev):
+    status_devpath="/sys/" + dev + "/card0-DP-1/status"
+    st = list(map(lambda s: s.strip(), open(status_devpath).readlines()))
+    if "connected" in st:
+        return 1
+    elif "disconnected" in st:
+        return 0
+    else:
+        return None
 
 def maybe_run_script(d):
     action = d.properties.get("ACTION")
     id_model = d.properties.get("ID_MODEL")
+    subsystem = d.properties.get("SUBSYSTEM")
+    devpath = d.properties.get("DEVPATH")
     scripts = configured.get(id_model)
+    ac_power = d.properties.get("POWER_SUPPLY_ONLINE")
     if action=="bind" and id_model and scripts:
         for script in scripts:
             subprocess.run(script)
+    if action=="change" and subsystem=="drm":
+        status = dp1_plugged_in(devpath)
+        if status == 1:
+            print("in")
+            subprocess.run(configured["nec-in"][0])
+        elif status == 0:
+            print("out")
+            subprocess.run(configured["nec-out"][0])
+    if action=="change" and ac_power == "1":
+        print("power on")
+        subprocess.run(configured["fast"][0])
+    elif action=="change" and ac_power == "0":
+        print("power off")
+        # will be None if this is not an ac power event
+        subprocess.run(configured["slow"][0])
+
+"""
+uplug:
+{('DEVPATH', '/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0003:00/power_supply/AC'), ('SEQNUM', '7222'), ('POWER_SUPPLY_TYPE', 'Mains'), ('SUBSYSTEM', 'power_supply'), ('POWER_SUPPLY_ONLINE', '0'), ('POWER_SUPPLY_NAME', 'AC'), ('USEC_INITIALIZED', '7327573691'), ('ACTION', 'change')}
+{('DEVPATH', '/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0A:00/power_supply/BAT0'), ('POWER_SUPPLY_SERIAL_NUMBER', '50455'), ('POWER_SUPPLY_TYPE', 'Battery'), ('POWER_SUPPLY_CAPACITY_LEVEL', 'Normal'), ('USEC_INITIALIZED', '7327667689'), ('SEQNUM', '7223'), ('POWER_SUPPLY_MANUFACTURER', 'LGC-LGC7.790'), ('POWER_SUPPLY_CYCLE_COUNT', '0'), ('POWER_SUPPLY_STATUS', 'Discharging'), ('POWER_SUPPLY_TECHNOLOGY', 'Li-ion'), ('POWER_SUPPLY_CHARGE_NOW', '6462000'), ('SUBSYSTEM', 'power_supply'), ('POWER_SUPPLY_VOLTAGE_MIN_DESIGN', '7600000'), ('POWER_SUPPLY_VOLTAGE_NOW', '8543000'), ('POWER_SUPPLY_CHARGE_FULL_DESIGN', '7894000'), ('POWER_SUPPLY_CAPACITY', '95'), ('POWER_SUPPLY_PRESENT', '1'), ('ACTION', 'change'), ('POWER_SUPPLY_MODEL_NAME', 'DELL RNP7278'), ('POWER_SUPPLY_CHARGE_FULL', '6770000'), ('POWER_SUPPLY_NAME', 'BAT0')}
+
+plug:
+
+{('POWER_SUPPLY_ONLINE', '1'), ('DEVPATH', '/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0003:00/power_supply/AC'), ('POWER_SUPPLY_TYPE', 'Mains'), ('SUBSYSTEM', 'power_supply'), ('POWER_SUPPLY_NAME', 'AC'), ('USEC_INITIALIZED', '7349367257'), ('ACTION', 'change'), ('SEQNUM', '7224')}
+{('DEVPATH', '/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0A:00/power_supply/BAT0'), ('POWER_SUPPLY_SERIAL_NUMBER', '50455'), ('POWER_SUPPLY_TYPE', 'Battery'), ('POWER_SUPPLY_STATUS', 'Unknown'), ('POWER_SUPPLY_CAPACITY_LEVEL', 'Normal'), ('POWER_SUPPLY_MANUFACTURER', 'LGC-LGC7.790'), ('POWER_SUPPLY_CYCLE_COUNT', '0'), ('POWER_SUPPLY_TECHNOLOGY', 'Li-ion'), ('SUBSYSTEM', 'power_supply'), ('POWER_SUPPLY_VOLTAGE_MIN_DESIGN', '7600000'), ('USEC_INITIALIZED', '7349402399'), ('POWER_SUPPLY_CHARGE_FULL_DESIGN', '7894000'), ('SEQNUM', '7225'), ('POWER_SUPPLY_CAPACITY', '95'), ('POWER_SUPPLY_PRESENT', '1'), ('ACTION', 'change'), ('POWER_SUPPLY_MODEL_NAME', 'DELL RNP7278'), ('POWER_SUPPLY_CHARGE_FULL', '6770000'), ('POWER_SUPPLY_CHARGE_NOW', '6456000'), ('POWER_SUPPLY_VOLTAGE_NOW', '8341000'), ('POWER_SUPPLY_NAME', 'BAT0')}
+{('DEVPATH', '/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0A:00/power_supply/BAT0'), ('POWER_SUPPLY_SERIAL_NUMBER', '50455'), ('POWER_SUPPLY_TYPE', 'Battery'), ('POWER_SUPPLY_CAPACITY_LEVEL', 'Normal'), ('USEC_INITIALIZED', '7352458501'), ('POWER_SUPPLY_MANUFACTURER', 'LGC-LGC7.790'), ('POWER_SUPPLY_CYCLE_COUNT', '0'), ('POWER_SUPPLY_TECHNOLOGY', 'Li-ion'), ('SUBSYSTEM', 'power_supply'), ('POWER_SUPPLY_VOLTAGE_MIN_DESIGN', '7600000'), ('POWER_SUPPLY_STATUS', 'Charging'), ('SEQNUM', '7226'), ('POWER_SUPPLY_CHARGE_FULL_DESIGN', '7894000'), ('POWER_SUPPLY_CAPACITY', '95'), ('POWER_SUPPLY_CURRENT_NOW', '1000'), ('POWER_SUPPLY_PRESENT', '1'), ('ACTION', 'change'), ('POWER_SUPPLY_MODEL_NAME', 'DELL RNP7278'), ('POWER_SUPPLY_CHARGE_FULL', '6770000'), ('POWER_SUPPLY_CHARGE_NOW', '6456000'), ('POWER_SUPPLY_VOLTAGE_NOW', '8392000'), ('POWER_SUPPLY_NAME', 'BAT0')}
+"""
+
+        # sup = d.properties.get("POWER_SUPPLY_ONLINE")
+        # if sup == "1":
+        #     print("slowing")
+        #     # unthrottle cpu
+        #     return
+        # elif sup == "0":
+        #     print("speeding up")
+        #     # throttle cpu
+        #     return
 
 def main():
     monitor = pyudev.Monitor.from_netlink(pyudev.Context())
-    monitor.filter_by(subsystem='usb')
+    #monitor.filter_by(subsystem='usb')
     monitor.start()
 
     for d in iter(monitor.poll, None):
+        print(set(d.properties.items()))
         maybe_run_script(d)
 
 if __name__ == '__main__':

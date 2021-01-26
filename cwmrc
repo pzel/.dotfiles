@@ -1,6 +1,6 @@
 borderwidth 4
 snapdist 64
-gap 0 0 30 0
+gap 0 0 10 0
 color activeborder turquoise
 color inactiveborder slategray
 
@@ -8,7 +8,7 @@ color inactiveborder slategray
 ignore "xfce4-panel"
 ignore "Global time"
 
-# 4-Enter 
+# 4-Enter
 command firefox firefox
 command thunderbird thunderbird
 command anki anki
@@ -20,8 +20,6 @@ command evince evince
 unbind-key all
 unbind-mouse all
 
-bind-mouse M-1 window-raise
-bind-mouse M-3 window-lower
 bind-mouse 4-1 window-move
 bind-mouse 4-2 window-resize
 bind-mouse 4-3 window-resize
@@ -30,6 +28,7 @@ bind-key M-Tab    window-cycle
 bind-key 4-Tab    window-cycle
 bind-key MS-Tab   window-rcycle
 bind-key 4-space      menu-window
+bind-key 4-Escape menu-window
 bind-key 4-Up      window-vmaximize
 bind-key 4-Left      window-snap-left
 bind-key 4-Right      window-snap-right

@@ -4,7 +4,7 @@ exec 2>&1 >> /tmp/onsuspend
 
 if pgrep -f xss-lock
   then xset s activate
-  else slock &
+  else pzel_lock
 fi
 
 echo "suspended at $(date)"

@@ -10,15 +10,19 @@ exec > $HOME/.xlog
 exec 2&>1
 
 cleanup() {
-  TOKILL=redshift-gtk redshift xbindkeys kbd_watch display_watch udiskie alttab
+  TOKILL=redshift-gtk redshift xbindkeys \
+  kbd_watch display_watch udiskie alttab xscreensaver
   for PROC in ${TOKILL}; do (killall -9 ${PROC} || true); done
 }
 
 setup() {
+        # ~/.screenlayout/laptop-lores.sh
+	xscreensaver -no-splash &
+	stalonetray  -v &
 	bgc "#324542"
 	connman-ui-gtk &
 	kbd_watch &
-	xfce4-panel --disable-wm-check &
+	#xfce4-panel --disable-wm-check &
 	#pulseaudio &
 	redshift-gtk -t 5000:3000 -l 51:19 &
 	udiskie --tray &
@@ -26,26 +30,22 @@ setup() {
 	xmodmap ~/.Xmodmap
 	xrdb -merge ~/.Xresources
 	ibus-daemon --xim -dr &
-	xset s 300
-	xss-lock -- slock &
+	xset s 600
+	xss-lock -- pzel_lock &
 	kupfer --no-splash >/dev/null 2>&1 &
-	globaltime &
 	amixer -q set Headphone 60%
 	amixer -q set PCM 100%
 	amixer -q set Speaker 100%
 	# xfsettingsd &
 	# gsettings set org.gnome.desktop.a11y.keyboard bouncekeys-enable true
 	# gsettings set org.gnome.desktop.a11y.keyboard bouncekeys-delay 50
-        ~/.screenlayout/laptop-lores.sh
         #xkbset exp -bell -sticky -twokey -latchlock -feedback -stickybeep -led 99999
         #xkbset sticky -twokey -latchlock feedback led stickybeep
 	# disable dell touchscreen
         xinput --list | grep ELAN | sed -e 's/.*id=\(.\+\)\t.*/\1/' | xargs xinput disable
-	alttab -mk Super_L -kk Tab -s 0 -bg white -fg black >/dev/null 2>&1 &
 }
 
 cleanup
 (sleep 2 && setup) &
 exec dbus-launch --sh-syntax --exit-with-x11 xfwm4
-
 

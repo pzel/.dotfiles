@@ -37,14 +37,13 @@
 "mute_zoom"
     Mod4 + Control + m + Release
 
-
 # Hardware control
 
 "bash /home/p/.screenlayout/laptop-lores.sh"
     Mod4 + F7
 "monitors"
     Shift + Mod4 + F7
-"slock"
+"pzel_lock"
     Control + Mod4 + Home
 "sudo zzz"
     Control + Mod4 + End
