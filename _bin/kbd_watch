@@ -3,6 +3,16 @@ import pyudev
 import subprocess
 
 # it's ID_MODEL
+reset_wmaker = [
+    # sadly the only way. No programmatic access to a runnign
+    # wmaker.
+    ["sleep", "0.5"],
+    ["xdotool", "key", "ctrl+super+shift+a"],
+    ["xdotool", "key", "KP_Up"],
+    ["xdotool", "key", "KP_Up"],
+    ["xdotool", "key", "Return"]
+]
+
 configured = {
     "2.4G_Mouse": [
         # ["say", "mouse configured"]
@@ -18,8 +28,12 @@ configured = {
     ],
     "slow": [["sudo", "/bin/slow"]],
     "fast": [["sudo", "/bin/fast"]],
-    "nec-in": [["sh", "-c", "/home/p/.screenlayout/home-nec-left.sh"]],
-    "nec-out": [["sh", "-c", "/home/p/.screenlayout/laptop-lores.sh"]]
+    "nec-in": [
+        ["sh", "-c", "/home/p/.screenlayout/home-nec-left.sh"],
+    ] + reset_wmaker,
+    "nec-out": [
+        ["sh", "-c", "/home/p/.screenlayout/laptop-lores.sh"]
+    ] + reset_wmaker
 }
 
 def dp1_plugged_in(dev):
@@ -66,3 +80,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
