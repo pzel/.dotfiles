@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import pyudev
 import subprocess
+import threading
 
-# it's ID_MODEL
 reset_wmaker = [
     # sadly the only way. No programmatic access to a runnign
     # wmaker.
@@ -29,7 +29,7 @@ configured = {
     "slow": [["sudo", "/bin/slow"]],
     "fast": [["sudo", "/bin/fast"]],
     "nec-in": [
-        ["sh", "-c", "/home/p/.screenlayout/home-nec-left.sh"],
+        ["sh", "-c", "/home/p/.screenlayout/home-nec-left.sh"]
     ] + reset_wmaker,
     "nec-out": [
         ["sh", "-c", "/home/p/.screenlayout/laptop-lores.sh"]
@@ -37,6 +37,7 @@ configured = {
 }
 
 def dp1_plugged_in(dev):
+    # todo later: discern by monitor type
     status_devpath="/sys/" + dev + "/card0-DP-1/status"
     st = list(map(lambda s: s.strip(), open(status_devpath).readlines()))
     if "connected" in st:
@@ -51,6 +52,7 @@ def run_scripts_for(key):
         subprocess.run(script)
 
 def maybe_run_script(d):
+    # print("maybe running script for "+str(d))
     action = d.properties.get("ACTION")
     id_model = d.properties.get("ID_MODEL")
     subsystem = d.properties.get("SUBSYSTEM")
@@ -71,12 +73,13 @@ def maybe_run_script(d):
         run_scripts_for("slow")
 
 def main():
+
     monitor = pyudev.Monitor.from_netlink(pyudev.Context())
     #monitor.filter_by(subsystem='usb')
     monitor.start()
-
-    for d in iter(monitor.poll, None):
-        maybe_run_script(d)
+    for dbus_event in iter(monitor.poll, None):
+        t=threading.Thread(target=lambda x: maybe_run_script(x), args=([dbus_event]))
+        t.start()
 
 if __name__ == '__main__':
     main()

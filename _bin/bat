@@ -1,17 +1,19 @@
 #!/bin/sh
 BATTERY='/sys/bus/acpi/drivers/battery/PNP0C0A:00/power_supply/BAT0'
-
+CPU='/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq'
 main() {
     capacity=$(cat $BATTERY/capacity)
     status=$(cat $BATTERY/status)
+    cpuspeed=$(($(cat $CPU)/1000))
     #icon=$(block ${capacity})
     icon=$(number ${capacity})
     echo ${capacity} >&2
     case ${status} in
         "Discharging") echo -n "${icon}🠛" ;;
         "Charging") echo -n "${icon}🠙" ;;
-        *) echo -n "${icon} " ;;
+        *) echo -n "${icon}" ;;
     esac
+    echo -n "@${cpuspeed} "
 }
 
 number() {
