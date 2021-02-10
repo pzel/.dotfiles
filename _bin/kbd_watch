@@ -3,16 +3,6 @@ import pyudev
 import subprocess
 import threading
 
-reset_wmaker = [
-    # sadly the only way. No programmatic access to a runnign
-    # wmaker.
-    ["sleep", "0.5"],
-    ["xdotool", "key", "ctrl+super+shift+a"],
-    ["xdotool", "key", "KP_Up"],
-    ["xdotool", "key", "KP_Up"],
-    ["xdotool", "key", "Return"]
-]
-
 configured = {
     "2.4G_Mouse": [
         # ["say", "mouse configured"]
@@ -30,10 +20,10 @@ configured = {
     "fast": [["sudo", "/bin/fast"]],
     "nec-in": [
         ["sh", "-c", "/home/p/.screenlayout/home-nec-left.sh"]
-    ] + reset_wmaker,
+    ]
     "nec-out": [
         ["sh", "-c", "/home/p/.screenlayout/laptop-lores.sh"]
-    ] + reset_wmaker
+    ]
 }
 
 def dp1_plugged_in(dev):

@@ -39,4 +39,4 @@ setup() {
 
 cleanup
 (sleep 1 && setup) &
-exec dbus-launch --sh-syntax --exit-with-x11 wmaker
+exec dbus-launch --sh-syntax --exit-with-x11 openbox-session
