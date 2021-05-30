@@ -17,7 +17,6 @@ cleanup() {
 }
 
 setup() {
-	wmsystemtray --windows 2 &
 	bgc "#324542"
 	connman-ui-gtk &
 	kbd_watch &
@@ -29,11 +28,12 @@ setup() {
 	ibus-daemon --xim -dr &
 	xset s 600
 	xss-lock -- pzel_lock &
-	cbatticon &
+	#cbatticon & #ironically, v. power-hungry :\
 	kupfer --no-splash >/dev/null 2>&1 &
 	amixer -q set Headphone 60%
 	amixer -q set PCM 100%
 	amixer -q set Speaker 100%
+	stalonetray --dockapp-mode &
   (xinput --list | grep ELAN | sed -e 's/.*id=\(.\+\)\t.*/\1/' | xargs xinput disable) &
 }
 

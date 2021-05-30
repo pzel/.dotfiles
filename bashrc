@@ -8,20 +8,23 @@ fi
 
 ## TERMINAL TWEAKS
 if [ -n "$INSIDE_ACME" ] ; then
-  PS1="\$(awd)$ " export PS1;
+  PS1="\$(awd)% " export PS1;
   unset COLORTERM
 elif [ -n "$INSIDE_EMACS" ] ; then
   unset COLORTERM
-  PS1="\
-\$(TZ=America/Los_Angeles date +%H:%M) \
-\$(TZ=America/New_York date +%H) \
-\$(TZ=America/Buenos_Aires date +%H) \
-\$(TZ=Europe/Warsaw date +%H:%M) \
-\$(basename \"\$(pwd)\")$ " export PS1;
+  PS1="\$(basename \$(pwd))% " export PS1;
 else
-  PS1="\$(basename \$(pwd))$ " export PS1;
+  PS1="\$(basename \$(pwd))% " export PS1;
 fi;
 
+#elif [ -n "$INSIDE_EMACS" ] ; then
+#  unset COLORTERM
+#  PS1="\
+#\$(TZ=America/Los_Angeles date +%H:%M) \
+#\$(TZ=America/New_York date +%H) \
+#\$(TZ=America/Buenos_Aires date +%H) \
+#\$(TZ=Europe/Warsaw date +%H:%M) \
+#\$(basename \"\$(pwd)\")$\u00A0" export PS1;
 
 ## TWEAKS
 export NO_COLOR=1
@@ -51,6 +54,14 @@ export PATH=$PATH:$HOME/.cargo/bin:$HOME/bin:$HOME/.rbenv/bin
 test -s "$HOME/.asdf/asdf.sh" &&\
   . "$HOME/.asdf/asdf.sh"
 
+## FACTOR
+export FACTOR_ROOTS=$HOME/code
+
+## JANET
+export JANET_HEADERPATH=$HOME/src/janet/build/
+export JANET_LIBPATH=$HOME/src/janet/build/
+alias jnt='janet -n -s -q'
+
 rbenv_init() {
   eval "$(rbenv init -)"
 }
@@ -73,6 +84,10 @@ dps() { docker ps; }
 dimg() { docker images; }
 drm() { docker ps -a | awk '{print $1}' | grep -v CONTAINER | xargs docker rm -f; }
 drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f; }
+fv() {
+  local r="$(fzf)"
+  if [ -n "$r" ] ; then vi "$r"; fi
+}
 
 alias g=git
 alias xbq='xbps-query -Rs'

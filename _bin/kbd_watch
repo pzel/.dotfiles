@@ -18,10 +18,11 @@ configured = {
     ],
     "slow": [["sudo", "/bin/slow"]],
     "fast": [["sudo", "/bin/fast"]],
-    "nec-in": [
-        ["sh", "-c", "/home/p/.screenlayout/home-nec-left.sh"]
-    ]
-    "nec-out": [
+    "dp1-in": [
+#        ["sh", "-c", "/home/p/.screenlayout/home-nec-left.sh"]
+        ["sh", "-c", "/home/p/.screenlayout/home-lg-left.sh"]
+    ],
+    "dp1-out": [
         ["sh", "-c", "/home/p/.screenlayout/laptop-lores.sh"]
     ]
 }
@@ -53,9 +54,9 @@ def maybe_run_script(d):
     if action=="change" and subsystem=="drm":
         status = dp1_plugged_in(devpath)
         if status == 1:
-            run_scripts_for("nec-in")
+            run_scripts_for("dp1-in")
         elif status == 0:
-            run_scripts_for("nec-out")
+            run_scripts_for("dp1-out")
     if action=="change" and ac_power == "1":
         run_scripts_for("fast")
     elif action=="change" and ac_power == "0":

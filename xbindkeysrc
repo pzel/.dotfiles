@@ -12,8 +12,6 @@
     Mod4 + r + release
 "sleep 0.1; xdotool key 'ctrl+t'"
     Mod4 + t + release
-"sleep 0.1; xdotool key 'ctrl+w'"
-    Mod4 + w + release
 "sleep 0.1 ; xdotool key 'ctrl+c'"
     Mod4 + c + Release
 "sleep 0.1; xdotool key 'ctrl+c'"
@@ -42,7 +40,7 @@
 "bash /home/p/.screenlayout/laptop-lores.sh"
     Mod4 + F7
 "monitors"
-    Shift + Mod4 + F7
+    Control + Shift + Mod4 + F7
 "pzel_lock"
     Control + Mod4 + Home
 "sudo zzz"
@@ -64,7 +62,7 @@
 "light -S 3"
     Mod4 + F8
 "xcalib -i -a"
-    Shift + Mod4 + F12 + Release
+    Shift + Mod4 + F7 + Release
 "find-cursor -o"
     Shift + Mod4 + Escape + Release
 

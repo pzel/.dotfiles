@@ -12,12 +12,12 @@
        apply -->
     <followMouse>yes</followMouse>
     <!-- move focus to a window when you move the mouse into it -->
-    <focusLast>yes</focusLast>
+    <focusLast>no</focusLast>
     <!-- focus the last used window when changing desktops, instead of the one
        under the mouse pointer. when followMouse is enabled -->
     <underMouse>no</underMouse>
     <!-- move focus under the mouse, even when the mouse is not moving -->
-    <focusDelay>200</focusDelay>
+    <focusDelay>500</focusDelay>
     <!-- when followMouse is enabled, the mouse must be inside the window for
        this many milliseconds (1000 = 1 sec) before moving focus to it -->
     <raiseOnFocus>no</raiseOnFocus>
@@ -25,7 +25,7 @@
        mouse into it, also raise the window -->
   </focus>
   <placement>
-    <policy>Smart</policy>
+    <policy>UnderMouse</policy>
     <!-- 'Smart' or 'UnderMouse' -->
     <center>yes</center>
     <!-- whether to place windows in the center of the free area found or
@@ -43,7 +43,7 @@
   </placement>
   <theme>
     <name>Syscrash</name>
-    <titleLayout>CIML</titleLayout>
+    <titleLayout>IML</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
@@ -171,7 +171,7 @@
     <autoHide>yes</autoHide>
     <hideDelay>300</hideDelay>
     <!-- in milliseconds (1000 = 1 second) -->
-    <showDelay>0</showDelay>
+    <showDelay>1380</showDelay>
     <!-- in milliseconds (1000 = 1 second) -->
     <moveButton>Middle</moveButton>
     <!-- 'Left', 'Middle', 'Right' -->
@@ -197,7 +197,7 @@
         <height>100%</height>
       </action>
     </keybind>
-    <keybind key="W-q">
+    <keybind key="W-w">
       <action name="Close"/>
     </keybind>
     <keybind key="W-Escape">
@@ -212,18 +212,18 @@
     <keybind key="W-Tab">
       <action name="NextWindow">
         <finalactions>
-          <action name="Focus"/>
           <action name="Raise"/>
           <action name="Unshade"/>
+          <action name="Focus"/>
         </finalactions>
       </action>
     </keybind>
     <keybind key="W-S-Tab">
       <action name="PreviousWindow">
         <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
           <action name="Unshade"/>
+          <action name="Raise"/>
+          <action name="Focus"/>
         </finalactions>
       </action>
     </keybind>

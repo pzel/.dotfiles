@@ -17,7 +17,7 @@ URxvt.perl-ext-common: default,clipboard
 
 URxvt*.foreground:   #000000
 URxvt*.background:   #fefefe
-URxvt*.cursorColor:  #464646
+URxvt*.cursorColor:  #ff4646
 URxvt*.color0:       #101010
 URxvt*.color8:       #525252
 URxvt*.color1:       #7c7c7c
@@ -37,8 +37,8 @@ URxvt*.color15:      #f7f7f7
 
 !URxvt*font: xft:Atarist:style=Regular
 !URxvt*boldFont: xft:Atarist:style=Bold
-URxvt*font: xft:go mono:size=11:style=Regular
-URxvt*boldFont: xft:go mono:size=11:style=Bold
+URxvt*font: xft:go mono:size=12:style=Regular
+URxvt*boldFont: xft:go mono:size=12:style=Bold
 URxvt*scrollTtyKeypress: true
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: false
