@@ -1,0 +1,11 @@
+#!/bin/sh
+binary="$1"
+
+if pgrep -u $USER "$binary" > /dev/null;
+then
+	echo "$binary found" 1>&2
+	xdotool windowactivate $(xdotool search --class "$binary" | tail -1)\
+          > /dev/null 2>&1 &
+else
+	"$binary" > /dev/null 2>&1 &
+fi

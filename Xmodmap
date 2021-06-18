@@ -5,3 +5,5 @@ keycode 167 = Next
 
 ! PrintScrn is caps lock
 keycode 107 = Caps_Lock
+! Pause is Break
+keycode 127 = Break

@@ -2,7 +2,7 @@
 if pgrep -u $USER emacs > /dev/null;
 then
 	echo "Emacs found" 1>&2
-	(sleep 0.5; xdotool windowactivate $(xdotool search --class emacs | tail -1) > /dev/null 2>&1) &
+	(sleep 0.01; xdotool windowactivate $(xdotool search --class emacs | tail -1) > /dev/null 2>&1) &
 	emacsclient "$@" > /dev/null 2>&1
 
 else

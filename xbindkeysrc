@@ -20,12 +20,14 @@
 
 # Launchers
 
-"zeal"
-    Mod4 + F1
 "xfterm"
     Mod4 + F5
-"xfterm urxvt"
+"focus_window emacs"
     Mod4 + F6
+"focus_window thunderbird"
+    Mod4 + F7
+"focus_window firefox"
+    Mod4 + F8
 "thunar"
     Mod4 + h
 "screenshot"
@@ -38,9 +40,9 @@
 # Hardware control
 
 "bash /home/p/.screenlayout/laptop-lores.sh"
-    Mod4 + F7
+    Mod4 + F9
 "monitors"
-    Control + Shift + Mod4 + F7
+    Control + Shift + Mod4 + F9
 "pzel_lock"
     Control + Mod4 + Home
 "sudo zzz"
@@ -60,9 +62,9 @@
 "light -A 5"
     Mod4 + F12
 "light -S 3"
-    Mod4 + F8
+    Mod4 + F10
 "xcalib -i -a"
-    Shift + Mod4 + F7 + Release
+    Shift + Mod4 + F9 + Release
 "find-cursor -o"
     Shift + Mod4 + Escape + Release
 

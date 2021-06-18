@@ -12,7 +12,7 @@ exec 2>&1
 
 cleanup() {
   TOKILL=redshift-gtk redshift xbindkeys \
-  kbd_watch display_watch udiskie alttab xscreensaver
+  kbd_watch display_watch udiskie alttab xscreensaver emacs
   for PROC in ${TOKILL}; do (killall -9 ${PROC} || true); done
 }
 
