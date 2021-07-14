@@ -1,0 +1,2 @@
+#!/bin/sh
+xinput --list | grep ELAN | sed -e 's/.*id=\(.\+\)\t.*/\1/' | xargs xinput enable

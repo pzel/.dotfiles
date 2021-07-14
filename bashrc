@@ -54,14 +54,9 @@ export PATH=$PATH:$HOME/.cargo/bin:$HOME/bin:$HOME/.rbenv/bin
 test -s "$HOME/.asdf/asdf.sh" &&\
   . "$HOME/.asdf/asdf.sh"
 
-## FACTOR
-export FACTOR_ROOTS=$HOME/code
-
-## JANET
-export JANET_HEADERPATH=$HOME/src/janet/build/
-export JANET_LIBPATH=$HOME/src/janet/build/
-alias jnt='janet -n -s -q'
-
+luarocks_init() {
+  eval "$(luarocks path --bin)"
+}
 rbenv_init() {
   eval "$(rbenv init -)"
 }

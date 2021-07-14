@@ -7,3 +7,4 @@ alias sf='sudo fast'
 alias sl='sudo slow'
 alias linked_in="sudo sed -ibak /etc/hosts -e 's/^0.0.0.0.*linkedin.com$//g'"
 alias devdocs="surf -z 2 localhost:9292&"
+alias duh='du -h --max-depth=1 | sort -h'

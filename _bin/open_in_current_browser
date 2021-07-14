@@ -1,7 +1,9 @@
 #!/bin/bash
 #CHRO=/home/p/.local/bin/chro
 
-if ! (pgrep -fl chromium  > /dev/null 2>&1)
-then icecat "$@" > /dev/null 2>&1
-else chromium "$@" > /dev/null 2>&1
-fi
+uchromium "$@" > /dev/null 2>&1
+
+# if ! (pgrep -fl uchromium  > /dev/null 2>&1)
+# then uchromium "$@" > /dev/null 2>&1
+# else uchromium "$@" > /dev/null 2>&1
+# fi
