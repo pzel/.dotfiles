@@ -1,2 +1,8 @@
 #!/bin/sh
-cd /opt/chromium && ./chrome "$@"
+if (pgrep wn_chromium ) then
+  echo "at work" 1>&2
+  wn_chromium "$@"
+else
+  echo "not at work" 1>&2
+  cd /opt/chromium && ./chrome "$@"
+fi
