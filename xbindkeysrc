@@ -26,7 +26,7 @@
     Mod4 + F6
 "focus_window thunderbird"
     Mod4 + F7
-"focus_window firefox"
+"focus_window chromium"
     Mod4 + F8
 "thunar"
     Mod4 + h

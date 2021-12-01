@@ -2,7 +2,7 @@
 set -x
 exec 2>&1 >> /tmp/onresume
 
-#nm-online &
+(sleep 5 && sudo /bin/restart_nm) &
 light -S 60 &
 xmodmap ~/.Xmodmap &
 

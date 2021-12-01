@@ -1,14 +1,13 @@
 #!/bin/sh
-export GTK_IM_MODULE=ibus
+export GTK_IM_MODULE=xim
 export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-export QT4_IM_MODULE=ibus
-export WMAKER_USER_ROOT=$HOME/.config/GNUstep
+export QT_IM_MODULE=xim
+export GTK_OVERLAY_SCROLLING=0
 #export GTK_IM_MODULE_FILE=/etc/gtk-2.0/gtk.immodules
 #export GTK_IM_MODULE_FILE=/usr/lib/gtk-3.0/3.0.0/immodules.cache
 
-exec > $HOME/.xlog
 exec 2>&1
+exec > $HOME/.xlog
 
 cleanup() {
   TOKILL=redshift-gtk redshift xbindkeys \
@@ -18,7 +17,8 @@ cleanup() {
 
 setup() {
 	bgc "#324542"
-	connman-ui-gtk &
+	#connman-ui-gtk &
+	nm-applet &
 	kbd_watch &
 	redshift-gtk -t 5000:3000 -l 51:19 &
 	udiskie --tray &
@@ -28,7 +28,6 @@ setup() {
 	ibus-daemon --xim -dr &
 	xset s 600
 	xss-lock -- pzel_lock &
-	#cbatticon & #ironically, v. power-hungry :\
 	kupfer --no-splash >/dev/null 2>&1 &
 	amixer -q set Headphone 60%
 	amixer -q set PCM 100%

@@ -1,3 +1,4 @@
+
 # If not running interactively, don't do anything
 if [ `uname` != "Darwin" ]; then
     case $- in
@@ -7,24 +8,16 @@ if [ `uname` != "Darwin" ]; then
 fi
 
 ## TERMINAL TWEAKS
-if [ -n "$INSIDE_ACME" ] ; then
-  PS1="\$(awd)% " export PS1;
+if [ -n "$INSIDE_EMACS" ] ; then
   unset COLORTERM
-elif [ -n "$INSIDE_EMACS" ] ; then
-  unset COLORTERM
-  PS1="\$(basename \$(pwd))% " export PS1;
-else
-  PS1="\$(basename \$(pwd))% " export PS1;
-fi;
+fi
 
-#elif [ -n "$INSIDE_EMACS" ] ; then
-#  unset COLORTERM
-#  PS1="\
-#\$(TZ=America/Los_Angeles date +%H:%M) \
-#\$(TZ=America/New_York date +%H) \
-#\$(TZ=America/Buenos_Aires date +%H) \
-#\$(TZ=Europe/Warsaw date +%H:%M) \
-#\$(basename \"\$(pwd)\")$\u00A0" export PS1;
+if [ -n "$INSIDE_ACME" ] ; then
+  export PS1="\$(awd)% " ;
+  unset COLORTERM
+else
+  export PS1="\$(basename \$(pwd))\$(printf '[%c]' "\${IN_NIX_SHELL:-_}" )% ";
+fi;
 
 ## TWEAKS
 export NO_COLOR=1
@@ -36,66 +29,24 @@ stty -ixon
 shopt -s checkwinsize
 if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
 export LC_ALL=en_US.UTF-8
-export LYNX_LSS="$HOME/.lynx.lss"
+export LESS="-XF"
 
 ## GPG AGENT
 GPG_TTY=$(tty) export GPG_TTY
 export GPG_AGENT_INFO=""
 
 ## PATHS
-export PATH=$PATH:$HOME/.cargo/bin:$HOME/bin:$HOME/.rbenv/bin
-
-## ALIA
-. "$HOME"/.alia
+export PATH=$PATH:$HOME/bin:$HOME/wn/bin/
 
 ## LANGUAGE OVERLAY MANAGERS
+. /home/p/.nix-profile/etc/profile.d/nix.sh
 
-## ASDF
-test -s "$HOME/.asdf/asdf.sh" &&\
-  . "$HOME/.asdf/asdf.sh"
+## ANDROID
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-luarocks_init() {
-  eval "$(luarocks path --bin)"
-}
-rbenv_init() {
-  eval "$(rbenv init -)"
-}
-
-nvm_init() {
-  export NVM_DIR="/home/p/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-}
-
-opam_init() {
-  . /home/p/.opam/opam-init/init.sh > /dev/null 2> /dev/null
-}
-
-test -f /usr/share/bash-completion/completions/fzf &&\
-  bash /usr/share/bash-completion/completions/fzf 
-
-## ALIASES, ETC.
 export EDITOR=emx
-dps() { docker ps; }
-dimg() { docker images; }
-drm() { docker ps -a | awk '{print $1}' | grep -v CONTAINER | xargs docker rm -f; }
-drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f; }
-fv() {
-  local r="$(fzf)"
-  if [ -n "$r" ] ; then vi "$r"; fi
-}
-
-alias g=git
-alias xbq='xbps-query -Rs'
-alias xbi='sudo xbps-install -S'
-alias xbr='sudo xbps-remove -R'
-alias mpl='mplayer -af scaletempo'
-alias ghcit='ghci -XAllowAmbiguousTypes -XDataKinds -XGADTs -XKindSignatures -XMultiParamTypeClasses -XFlexibleInstances -XFunctionalDependencies -XTypeOperators -XUndecidableInstances -XTypeFamilies -XDataKinds -XPolyKinds -XTypeOperators'
-alias x='exec ssh-agent startx'
-alias tmx='(pgrep tmux >/dev/null 2>&1) && tmux a || tmux'
-alias h=history
-alias o=open
-alias ht='history | tail -n 20'
-
-#X=$(nmcli connection   | grep  SHAW-AA0149 | awk {print })
-#nmcli connect up $X
-export JAVA_HOME=/usr
+eval "$(direnv hook bash)"

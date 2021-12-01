@@ -1,9 +1,8 @@
-#!/bin/bash
-#CHRO=/home/p/.local/bin/chro
-
-uchromium "$@" > /dev/null 2>&1
-
-# if ! (pgrep -fl uchromium  > /dev/null 2>&1)
-# then uchromium "$@" > /dev/null 2>&1
-# else uchromium "$@" > /dev/null 2>&1
-# fi
+#!/bin/sh
+if ( pgrep wnchr ) then
+  echo "at work" 1>&2
+  wnchr "$@"
+else
+  echo "not at work" 1>&2
+  chr "$@"
+fi
