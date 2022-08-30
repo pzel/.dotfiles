@@ -1,4 +1,3 @@
-
 # If not running interactively, don't do anything
 if [ `uname` != "Darwin" ]; then
     case $- in
@@ -16,7 +15,7 @@ if [ -n "$INSIDE_ACME" ] ; then
   export PS1="\$(awd)% " ;
   unset COLORTERM
 else
-  export PS1="\$(basename \$(pwd))\$(printf '[%c]' "\${IN_NIX_SHELL:-_}" )% ";
+  export PS1="\$(date +'%H:%M:%S') \$(basename \"\$(pwd)\")\$(printf '[%c]' "\${IN_NIX_SHELL:-_}" )% ";
 fi;
 
 ## TWEAKS
@@ -30,23 +29,22 @@ shopt -s checkwinsize
 if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
 export LC_ALL=en_US.UTF-8
 export LESS="-XF"
+export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
 ## GPG AGENT
 GPG_TTY=$(tty) export GPG_TTY
 export GPG_AGENT_INFO=""
 
-## PATHS
-export PATH=$PATH:$HOME/bin:$HOME/wn/bin/
 
 ## LANGUAGE OVERLAY MANAGERS
-. /home/p/.nix-profile/etc/profile.d/nix.sh
+export JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk/jre
+export GERBIL_HOME=$HOME/src/gerbil
+export FLYCTL_INSTALL=$HOME/.fly
 
-## ANDROID
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+## PATHS
+export PATH="$PATH:$HOME/bin:$HOME/wn/bin/:/usr/local/pulumi/bin:$FLYCTL_INSTALL/bin:$GERBIL_HOME/bin"
 
 export EDITOR=emx
+. /home/p/.nix-profile/etc/profile.d/nix.sh
 eval "$(direnv hook bash)"

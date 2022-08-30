@@ -1,3 +1,52 @@
 #!/bin/sh
-#xscreensaver-command -suspend
-slock
+# XScreensaver should be called BEFORE going to sleep to avoid the desktop to be
+# shown for a few seconds when the system resumes from sleep.
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+set -x
+exec 2>&1
+
+lock_display() (
+  socket="$1"
+  display=$(echo "$socket" | tr "X" ":")
+
+  # Temporary pid file for the watching command
+  tpid=$(mktemp)
+
+  # Wait until the display is actually locked.
+  (timeout 2s xscreensaver-command -display "$display" -watch & echo $! > $tpid) | (
+    # Issue the lock command only when we know that
+    # the watching pipe is ready.
+    xscreensaver-command -display "$display" -lock
+
+    while read line
+    do
+      line=$(echo $line | cut -d' ' -f 1)
+
+      if [ "$line" = LOCK ]
+      then
+        # We have to kill the watching command manually before breaking.
+        kill -TERM $(cat $tpid)
+        break
+      fi
+    done
+  )
+
+  rm $tpid
+)
+
+
+# The X server may not be running
+if [ ! -d /tmp/.X11-unix ]
+then
+  exit 0
+fi
+
+# Lock each available display
+for socket in $(ls /tmp/.X11-unix)
+do
+    # Lock the display
+    lock_display $socket &
+done
+
+# Wait until every displays are locked
+wait

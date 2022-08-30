@@ -19,8 +19,8 @@ configured = {
     "slow": [["sudo", "/bin/slow"]],
     "fast": [["sudo", "/bin/fast"]],
     "dp1-in": [
+#        ["sh", "-c", "/home/p/.screenlayout/home-asus-left.sh"]
         ["sh", "-c", "/home/p/.screenlayout/home-nec-left.sh"]
-#        ["sh", "-c", "/home/p/.screenlayout/home-lg-left.sh"]
     ],
     "dp1-out": [
         ["sh", "-c", "/home/p/.screenlayout/laptop-lores.sh"]

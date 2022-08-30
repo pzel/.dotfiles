@@ -28,3 +28,10 @@
 	ff = only
 [init]
 	defaultBranch = master
+[hub]
+	protocol = ssh
+[rerere]
+	enabled = true
+
+[includeIf "hasconfig:remote.*.url:git@github.com:whatnot-inc/**"]
+  path = ~/.gitconfig-wn

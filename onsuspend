@@ -1,12 +1,8 @@
 #!/bin/bash
 set -x
 exec 2>&1 >> /tmp/onsuspend
-
-if pgrep -f xss-lock
-  then xset s activate
-  else pzel_lock
-fi
-
-echo "suspended at $(date)"
+/home/p/bin/pzel_lock
+sleep 1
+echo "suspended at $(date) by $(which pzel_lock)"
 
 

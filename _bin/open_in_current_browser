@@ -1,8 +1,9 @@
 #!/bin/sh
-if ( pgrep wnchr ) then
+if ( ps auxww | grep -- '--user-data-dir=/home/p/W[N]' ) then
   echo "at work" 1>&2
-  wnchr "$@"
+  $HOME/bin/wnchr "$@"
 else
   echo "not at work" 1>&2
-  chr "$@"
+  #  $HOME/bin/chr "$@" 
+  firefox "$@" 
 fi

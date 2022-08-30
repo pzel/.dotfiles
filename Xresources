@@ -35,10 +35,47 @@ URxvt*.color14:      #868686
 URxvt*.color7:       #b9b9b9
 URxvt*.color15:      #f7f7f7
 
-URxvt*font: xft:Atarist:style=Regular
-URxvt*boldFont: xft:Atarist:style=Bold
-!URxvt*font: xft:go mono:size=16:style=Regular
-!URxvt*boldFont: xft:go mono:size=16:style=Bold
+! special
+xterm*.foreground:   #5a5758
+xterm*.background:   #ffffff
+xterm*.cursorColor:  #5a5758
+
+! black
+xterm*.color0:       #231f20
+xterm*.color8:       #737171
+
+! red
+xterm*.color1:       #ee2e24
+xterm*.color9:       #ee2e24
+
+! green
+xterm*.color2:       #00853e
+xterm*.color10:      #00853e
+
+! yellow
+xterm*.color3:       #ffd204
+xterm*.color11:      #ffd204
+
+! blue
+xterm*.color4:       #009ddc
+xterm*.color12:      #009ddc
+
+! magenta
+xterm*.color5:       #98005d
+xterm*.color13:      #98005d
+
+! cyan
+xterm*.color6:       #85cebc
+xterm*.color14:      #85cebc
+
+! white
+xterm*.color7:       #d9d8d8
+xterm*.color15:      #ffffff
+
+!URxvt*font: xft:Atarist:style=Regular
+!URxvt*boldFont: xft:Atarist:style=Bold
+URxvt*font: xft:go mono:size=12:style=Regular
+URxvt*boldFont: xft:go mono:size=12:style=Bold
 URxvt*scrollTtyKeypress: true
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: false
@@ -51,9 +88,9 @@ xterm*font: 8x13bold
 xterm.boldFont: 8x13bold
 xterm*scrollTtyOutput: false
 xterm*scrollWithBuffer: false
-xterm*reverseVideo: off
+xterm*reverseVideo: false
 
 Xft.dpi: 114
 
-xscreensaver.font: xft:go mono:size=11:style=Regular
+xscreensaver.font: xft:go mono:size=10:style=Regular
 

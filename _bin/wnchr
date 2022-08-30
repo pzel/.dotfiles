@@ -1,2 +1,3 @@
 #!/bin/sh
+set -x
 chromium --no-default-browser-check --user-data-dir=/home/p/WN/chrome-profile "$@"

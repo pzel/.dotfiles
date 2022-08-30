@@ -24,10 +24,23 @@ dimg() { docker images; }
 drm() { docker ps -a | awk '{print $1}' | grep -v CONTAINER | xargs docker rm -f; }
 drmi() { docker images | awk '{print $3}' | grep -v IMAGE | xargs docker rmi -f; }
 drmv() { docker volume rm $(docker volume ls -q); }
+dlayers() {  docker image inspect "$1" | jq .[].RootFS.Layers ; }
+drip() { docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$1" ; }
 fv() {
   local r="$(fzf)"
   if [ -n "$r" ] ; then vi "$r"; fi
 }
+
+upmount() {
+  pmount | grep '^/dev/' | awk '{print $3}' | xargs -I% sudo umount '%'
+}
+
+off_work() {
+	pkill -f '/home/p/WN';
+	pkill -f zoom;
+}
+
+
 vethrm() { ifconfig | grep "^veth" | awk -F':' '{print $1}' | xargs -I% sudo ifconfig % down; }
 
 # aws
@@ -36,6 +49,7 @@ alias awsdev='aws --profile wn_dev'
 alias awsprod='aws --profile wn_prod'
 
 # kuberenetes aliases
+alias minik='minikube kubectl --'
 #alias k=kubectl
 #alias kd='kubectl describe'
 #alias ke='kubectl exec -it'
@@ -44,3 +58,5 @@ alias awsprod='aws --profile wn_prod'
 #alias kl='kubectl logs'
 #alias krr='kubectl rollout restart'
 #alias ksys='kubectl --namespace=kube-system'
+
+alias sixel_term='xterm -ti vt340'

@@ -1,0 +1,9 @@
+[core]
+	sshCommand = "ssh -i /home/p/.ssh/id_wn_ed25519 -F /dev/null"
+
+[user]
+	email = simon@whatnot.com
+	name = "Simon Zelazny"
+	
+[init]
+	defaultBranch = main

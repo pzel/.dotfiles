@@ -28,7 +28,7 @@
     Mod4 + F7
 "focus_window chromium"
     Mod4 + F8
-"thunar"
+"pcmanfm"
     Mod4 + h
 "screenshot"
     Shift + Mod4 + 4 + Release
@@ -61,7 +61,7 @@
     XF86MonBrightnessUp
 "light -A 5"
     Mod4 + F12
-"light -S 3"
+"light -S 1"
     Mod4 + F10
 "xcalib -i -a"
     Shift + Mod4 + F9 + Release

@@ -1,2 +1,7 @@
-#!/bin/sh
-xdg-open "$@" > /dev/null 2>&1 &
+#!/bin/bash
+if [[ "$1" == http* ]];
+then
+  $HOME/bin/open_in_current_browser "$@" > /dev/null 2>&1 &
+else
+  xdg-open "$@" > /dev/null 2>&1 &
+fi
