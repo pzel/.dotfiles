@@ -43,8 +43,11 @@ export FLYCTL_INSTALL=$HOME/.fly
 
 
 ## PATHS
-export PATH="$PATH:$HOME/bin:$HOME/wn/bin/:/usr/local/pulumi/bin:$FLYCTL_INSTALL/bin:$GERBIL_HOME/bin"
+export PATH="$PATH:$HOME/bin:$HOME/wn/bin/"
 
 export EDITOR=emx
 . /home/p/.nix-profile/etc/profile.d/nix.sh
 eval "$(direnv hook bash)"
+# eval $(opam env --switch=default)
+export PYTHONSTARTUP=~/.pyrc
+

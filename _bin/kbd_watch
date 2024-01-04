@@ -7,6 +7,12 @@ configured = {
     "2.4G_Mouse": [
         # ["say", "mouse configured"]
     ],
+    "Usb_Mouse": [
+        ["/home/p/bin/fixsigma", "r"]
+    ],
+    "PS2toUSB_Adapter": [
+        ["/home/p/bin/fixegg"]
+    ],
     "Pro_Gaming_Keyboard": [
         ["xmodmap", "/home/p/.Xmodmap"],
         ["g810-led", "-dv", "046d", "-dp", "c339",
@@ -15,12 +21,13 @@ configured = {
          "-ds", "1463386A3531", "-g", "logo", "220000"],
         ["g810-led", "-c"],
         # ["say", "keyboard configured"]
-    ],
+     ],
     "slow": [["sudo", "/bin/slow"]],
     "fast": [["sudo", "/bin/fast"]],
     "dp1-in": [
 #        ["sh", "-c", "/home/p/.screenlayout/home-asus-left.sh"]
         ["sh", "-c", "/home/p/.screenlayout/home-nec-left.sh"]
+#        ["sh", "-c", "/home/p/.screenlayout/home-lg-left.sh"]
     ],
     "dp1-out": [
         ["sh", "-c", "/home/p/.screenlayout/laptop-lores.sh"]
@@ -50,6 +57,7 @@ def maybe_run_script(d):
     devpath = d.properties.get("DEVPATH")
     ac_power = d.properties.get("POWER_SUPPLY_ONLINE")
     if action=="bind" and id_model:
+        print("id model " + str(id_model))
         run_scripts_for(id_model)
     if action=="change" and subsystem=="drm":
         status = dp1_plugged_in(devpath)

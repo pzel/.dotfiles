@@ -1,85 +1,13 @@
 Emacs*useXIM: true
-URxvt.scrollBar:  false
-!URxvt.font: 8x13bold
+Xft.dpi: 114
 
-Xc8rsor.size: 48
-URxvt.perl-ext-common: default,clipboard
-!!   Normal      Bright
-!!   --------    -------
-!!   0 Black      8 Black
-!!   1 Red        9 Red
-!!   2 Yellow    10 Yellow
-!!   3 Green     11 Green
-!!   4 Blue      12 Blue
-!!   5 Magenta   13 Magenta
-!!   6 Cyan      14 Cyan
-!!   7 White     15 White
-
-URxvt*.foreground:   #000000
-URxvt*.background:   #fefefe
-URxvt*.cursorColor:  #ff4646
-URxvt*.color0:       #101010
-URxvt*.color8:       #525252
-URxvt*.color1:       #7c7c7c
-URxvt*.color9:       #7c7c7c
-URxvt*.color2:       #8e8e8e
-URxvt*.color10:      #8e8e8e
-URxvt*.color3:       #a0a0a0
-URxvt*.color11:      #a0a0a0
-URxvt*.color4:       #686868
-URxvt*.color12:      #686868
-URxvt*.color5:       #747474
-URxvt*.color13:      #747474
-URxvt*.color6:       #868686
-URxvt*.color14:      #868686
-URxvt*.color7:       #b9b9b9
-URxvt*.color15:      #f7f7f7
-
-! special
-xterm*.foreground:   #5a5758
-xterm*.background:   #ffffff
-xterm*.cursorColor:  #5a5758
-
-! black
-xterm*.color0:       #231f20
-xterm*.color8:       #737171
-
-! red
-xterm*.color1:       #ee2e24
-xterm*.color9:       #ee2e24
-
-! green
-xterm*.color2:       #00853e
-xterm*.color10:      #00853e
-
-! yellow
-xterm*.color3:       #ffd204
-xterm*.color11:      #ffd204
-
-! blue
-xterm*.color4:       #009ddc
-xterm*.color12:      #009ddc
-
-! magenta
-xterm*.color5:       #98005d
-xterm*.color13:      #98005d
-
-! cyan
-xterm*.color6:       #85cebc
-xterm*.color14:      #85cebc
-
-! white
-xterm*.color7:       #d9d8d8
-xterm*.color15:      #ffffff
-
-!URxvt*font: xft:Atarist:style=Regular
-!URxvt*boldFont: xft:Atarist:style=Bold
 URxvt*font: xft:go mono:size=12:style=Regular
 URxvt*boldFont: xft:go mono:size=12:style=Bold
 URxvt*scrollTtyKeypress: true
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: false
 URxvt*iso14755_52: false
+URxvt.scrollBar:  false
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.keysym.Control-Insert: eval:selection_to_clipboard
@@ -90,7 +18,48 @@ xterm*scrollTtyOutput: false
 xterm*scrollWithBuffer: false
 xterm*reverseVideo: false
 
-Xft.dpi: 114
-
 xscreensaver.font: xft:go mono:size=10:style=Regular
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+!
+URxvt*foreground:  #777777
+URxvt*background:  #111111
+URxvt*cursorColor: #fcdc08
+!
+! Black
+URxvt*color0:      #141414
+URxvt*color8:      #414141
+!
+! Red
+URxvt*color1:      #ff5555
+URxvt*color9:      #ff8888
+!
+! Green
+URxvt*color2:      #98ec65
+URxvt*color10:     #b6f292
+!
+! Yellow
+URxvt*color3:      #ffcc33
+URxvt*color11:     #ffd966
+!
+! Blue
+URxvt*color4:      #00aaff
+URxvt*color12:     #33bbff
+!
+! Magenta
+URxvt*color5:      #aa88ff
+URxvt*color13:     #cebbff
+!
+! Cyan
+URxvt*color6:      #88ddff
+URxvt*color14:     #bbecff
+!
+! White
+URxvt*color7:      #cccccc
+URxvt*color15:     #ffffff
+!
+! Bold, Italic, Underline
+URxvt*colorBD:     #fefdbf
+!URxvt*colorIT:
+!URxvt*colorUL:
 

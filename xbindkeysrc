@@ -24,7 +24,7 @@
     Mod4 + F5
 "focus_window emacs"
     Mod4 + F6
-"focus_window thunderbird"
+"focus_window sylpheed"
     Mod4 + F7
 "focus_window chromium"
     Mod4 + F8
@@ -53,15 +53,25 @@
     XF86AudioRaiseVolume
 "toggle_mute"
     XF86AudioMute
-"light -U 5"
+
+"/usr/bin/light -U 5"
     XF86MonBrightnessDown
-"light -U 5"
+"/usr/bin/light -U 5"
+    Scroll_Lock
+"/usr/bin/light -U 1"
     Mod4 + F11 + Release
-"light -A 5"
+
+"/usr/bin/light -A 5"
     XF86MonBrightnessUp
-"light -A 5"
+"/usr/bin/light -A 5"
+    Break
+"/usr/bin/light -A 1"
+    Mod4 + F12 + Release
+
+
+"/usr/bin/light -A 5"
     Mod4 + F12
-"light -S 1"
+"/usr/bin/light -S 1"
     Mod4 + F10
 "xcalib -i -a"
     Shift + Mod4 + F9 + Release

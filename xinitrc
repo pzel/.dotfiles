@@ -17,13 +17,11 @@ cleanup() {
 }
 
 setup() {
-#	bgc "#324542"
-	#connman-ui-gtk &
 	xss-lock -- pzel_lock &
 	xscreensaver &
 	nm-applet &
 	kbd_watch &
-	redshift-gtk -t 5000:3000 -l 51:19 &
+	redshift-gtk -t 4000:2500 -l 51:19 &
 	udiskie --tray &
 	xbindkeys &
 	xmodmap ~/.Xmodmap &
@@ -33,11 +31,11 @@ setup() {
 	amixer -q set Headphone 60% &
 	amixer -q set PCM 100% &
 	amixer -q set Speaker 100% &
-	stalonetray --dockapp-mode &
-	touchsceen_disable &
+	#stalonetray --dockapp-mode &
+	xfce4-panel &
+	(sleep 2 && touchsceen_disable) &
 }
 setup
 xhost si:localuser:root
 eval $(ssh-agent)
 exec dbus-launch --sh-syntax --exit-with-x11 openbox-session
-#exec dbus-launch --sh-syntax --exit-with-x11 dwm

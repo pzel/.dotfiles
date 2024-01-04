@@ -1,0 +1,20 @@
+#!/bin/bash
+FZF_EDITOR="nvi"
+
+frgi() {
+  local result
+  IFS=$'\n' result="$(rg -i --line-number "$@" | fzf --no-sort --tac --delimiter=: --nth=2..)"
+
+  local filename
+  local lineno
+  local _
+  if [[ -n "$result" ]]
+  then
+    IFS=':' read -r filename lineno _ <<< "$result"
+    # Vim can accept line-number with +99
+    # But if your editor cannot, then you had better remove the + argument
+    "$FZF_EDITOR" +"$lineno" "$filename"
+  fi
+}
+
+frgi "$@"
