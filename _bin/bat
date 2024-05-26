@@ -2,23 +2,29 @@
 BATTERY='/sys/bus/acpi/drivers/battery/PNP0C0A:00/power_supply/BAT0'
 CPU='/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq'
 main() {
+    # show numbers with param, icons without
+    if [ -n "$1" ]; then
+      shownumber=1
+    else
+      shownumber=0
+    fi
     capacity=$(cat $BATTERY/capacity)
     status=$(cat $BATTERY/status)
     cpuspeed=$(($(cat $CPU)/1000))
-    #icon=$(block ${capacity})
-    icon=$(number ${capacity})
+    if [ 1 = "$shownumber" ] ; then
+      icon="$capacity"
+      cpupart="@${cpuspeed} "
+    else
+      icon=$(block ${capacity})
+      cpupart=""
+    fi
     echo ${capacity} >&2
     case ${status} in
         "Discharging") echo -n "${icon}🠛" ;;
         "Charging") echo -n "${icon}🠙" ;;
         *) echo -n "${icon}" ;;
     esac
-    echo -n "@${cpuspeed} "
-}
-
-number() {
-  #echo -n "$(($1/10))"
-  echo -n "$1"
+    echo -n "$cpupart"
 }
 
 block() {
@@ -34,4 +40,4 @@ block() {
     fi
 }
 
-main
+main "$1"

@@ -12,7 +12,7 @@ export GTK_OVERLAY_SCROLLING=0
 
 cleanup() {
   TOKILL=redshift-gtk redshift xbindkeys \
-  kbd_watch display_watch udiskie alttab xscreensaver emacs
+  kbd_watch display_watch udiskie alttab xscreensaver emacs picom
   for PROC in ${TOKILL}; do (killall -9 ${PROC} || true); done
 }
 
@@ -38,4 +38,5 @@ setup() {
 setup
 xhost si:localuser:root
 eval $(ssh-agent)
+picom --backend=glx --window-shader-fg=/home/p/src/picom-grayscale-shader.glsl &
 exec dbus-launch --sh-syntax --exit-with-x11 openbox-session

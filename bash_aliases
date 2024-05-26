@@ -17,7 +17,7 @@ alias xbi='sudo xbps-install -S'
 alias xbq='xbps-query -Rs'
 alias xbr='sudo xbps-remove -R'
 alias yt-dlp-lo='yt-dlp -S ext -f 17/18'
-
+alias v4l='modprobe v4l2loopback video_nr=4 exclusive_caps=1'
 
 # DOCKER
 alias dc=docker-compose

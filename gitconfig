@@ -4,12 +4,14 @@
 	signingkey = 78CBAD6ABFB85A69
 [alias]
 	br = branch
+  brs = branch --sort=authordate
 	cm = commit
 	co = checkout
   cp = cherry-pick
 	rb = rebase
 	st = status
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  prdiff =  diff --name-status main...
 [core]
   editor = emx
 

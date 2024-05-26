@@ -1,0 +1,9 @@
+#!/bin/sh
+set -x
+if [ "$1" = "off" ] || [ "$1" = "0" ]; then
+	pkill -9 'picom';
+elif [ "$1" = "on" ] || [ "$1" = "1" ] ; then
+	picom --backend=glx --window-shader-fg=/home/p/src/picom-grayscale-shader.glsl &
+else exit 1
+fi;
+
