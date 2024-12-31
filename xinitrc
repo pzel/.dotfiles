@@ -21,7 +21,7 @@ setup() {
 	xscreensaver &
 	nm-applet &
 	kbd_watch &
-	redshift-gtk -t 4000:2500 -l 51:19 &
+	redshift-gtk -t 4000:3000 -l 51:19 &
 	udiskie --tray &
 	xbindkeys &
 	xmodmap ~/.Xmodmap &

@@ -4,6 +4,7 @@ alias ghcit='ghci -XAllowAmbiguousTypes -XDataKinds -XGADTs -XKindSignatures -XM
 alias emb='emacs -Q --batch --script'
 alias ht='history | tail -n 20'
 alias ir='irb --nocolorize --noautocomplete --noprompt --singleline'
+alias p3='python3'
 alias l='ls -1'
 alias la='ls -1A'
 alias linked_in="sudo sed -ibak /etc/hosts -e 's/^0.0.0.0.*linkedin.com$//g' && sudo sed -ibak /etc/hosts -e 's/^0.0.0.0.*licdn.com$//g'"

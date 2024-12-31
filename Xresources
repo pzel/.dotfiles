@@ -1,8 +1,8 @@
 Emacs*useXIM: true
 Xft.dpi: 114
 
-URxvt*font: xft:go mono:size=12:style=Regular
-URxvt*boldFont: xft:go mono:size=12:style=Bold
+URxvt*font: xft:Departure Mono:size=12:style=Regular
+URxvt*boldFont: xft:Departure Mono:size=12:style=Bold
 URxvt*scrollTtyKeypress: true
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: false

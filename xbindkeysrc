@@ -39,10 +39,6 @@
 
 # Hardware control
 
-"bash /home/p/.screenlayout/laptop-lores.sh"
-    Mod4 + F9
-"monitors"
-    Control + Shift + Mod4 + F9
 "pzel_lock"
     Control + Mod4 + Home
 "sudo zzz"
@@ -60,23 +56,34 @@
     Scroll_Lock
 "/usr/bin/light -U 1"
     Mod4 + F11 + Release
-
 "/usr/bin/light -A 5"
     XF86MonBrightnessUp
 "/usr/bin/light -A 5"
     Break
 "/usr/bin/light -A 1"
     Mod4 + F12 + Release
-
-
 "/usr/bin/light -A 5"
     Mod4 + F12
+# Set to darkest setting
 "/usr/bin/light -S 1"
     Mod4 + F10
+
+# Switch to laptop-only view
+"bash /home/p/.screenlayout/laptop-lores.sh"
+    Mod4 + F9
+
+# dmenu-based monitor layout chooser
+"monitors"
+    Control + Shift + Mod4 + F9
+
+# invert colors
 "xcalib -i -a"
     Shift + Mod4 + F9 + Release
-"find-cursor -o"
-    Shift + Mod4 + Escape + Release
+
+# toggle grayscale
+"grayscale"
+    Shift + Mod4 + F10 + Release
+
 
 # A list of keys is in /usr/include/X11/keysym.h and in
 # /usr/include/X11/keysymdef.h
@@ -86,3 +93,4 @@
 #   Release, Control, Shift, Mod1 (Alt), Mod2 (NumLock),
 #   Mod3 (CapsLock), Mod4, Mod5 (Scroll).
 #
+

@@ -38,12 +38,11 @@ export GPG_AGENT_INFO=""
 
 ## LANGUAGE OVERLAY MANAGERS
 export JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk/jre
-export GERBIL_HOME=$HOME/src/gerbil
 export FLYCTL_INSTALL=$HOME/.fly
 
 
 ## PATHS
-export PATH="$PATH:$HOME/bin:$HOME/wn/bin/"
+export PATH="$PATH:$HOME/bin:$HOME/wn/bin/:/opt/dart-sdk/bin"
 
 export EDITOR=emx
 . /home/p/.nix-profile/etc/profile.d/nix.sh
